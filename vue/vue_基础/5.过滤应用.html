@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <input type="text" @input='handleInput' v-model='mytext'>
+        <ul>
+            <li v-for="data in datalist">
+                {{data}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#box",
+        data: {
+            mytext: '',
+            datalist: ['aaa', 'bbb', 'ccc'],
+            list: ['aaa', 'bbb', 'ccc']
+        },
+        methods: {
+            handleInput: function () {
+                console.log(this.mytext);
+
+                var newlist = this.list.filter(item => item.indexOf(this.mytext) > -1)
+                this.datalist = newlist
+                console.log(this.datalist)
+            }
+
+        }
+    })
+</script>
+
+</html>

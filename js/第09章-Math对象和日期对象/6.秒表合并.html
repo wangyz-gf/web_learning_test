@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            text-align: center;
+            background-color: #E89703;
+            border: 1px black solid;
+            height: 300px;
+            width: 200px;
+            margin: 20px auto;
+            padding: 50px;
+        }
+
+        button {
+            height: 30px;
+            width: 50px;
+            background-color: black;
+            color: white;
+            border: 1px white solid;
+            display: block;
+            margin: 30px auto;
+        }
+    </style>
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        var i = 0; //总秒数
+        var time = null;
+        var isRunning = false;
+        // 界面加载
+        window.onload = function () {
+            function startTime() {
+                time = setInterval(() => {
+                    i++;
+                    $("seconds").innerHTML = numDouble(i % 60);
+                    $("minute").innerHTML = numDouble(parseInt(i / 60));
+                    $("hour").innerHTML = numDouble(parseInt(i / 3600));
+                }, 100)
+            }
+
+            function pauseTime() {
+                clearInterval(time);
+            }
+            $("reset").onclick = function () {
+                i = 0;
+                isRunning = false;
+                $("start").innerHTML = "开始";
+                $("seconds").innerHTML = "00";
+                $("minute").innerHTML = "00";
+                $("hour").innerHTML = "00";
+                clearInterval(time);
+            }
+            $("start").onclick = function () {
+                if (!isRunning) {
+                    isRunning = true;
+                    $("start").innerHTML = "暂停";
+                    startTime();
+                } else {
+                    isRunning = false;
+                    $("start").innerHTML = "开始";
+                    pauseTime();
+                }
+            }
+
+        }
+
+        function numDouble(num) {
+            if (num < 10) {
+                return "0" + num;
+            } else {
+                return num;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+<div class="parent">
+    <span id="hour">00</span>
+    <span>:</span>
+    <span id="minute">00</span>
+    <span>:</span>
+    <span id="seconds">00</span>
+    <br>
+    <button id="start">开始</button>
+    <button id="reset">复位</button>
+</div>
+
+</html>

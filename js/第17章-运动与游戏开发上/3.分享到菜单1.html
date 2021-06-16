@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            position: absolute;
+            height: 600px;
+            width: 100px;
+            background-color: #767676;
+            margin-top: 100px;
+            left: -100px;
+        }
+
+        #menu {
+            position: absolute;
+            height: 60px;
+            width: 20px;
+            background-color: #E7E702;
+            top: 50%;
+            right: -20px;
+            margin-top: -30px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var timer = null;
+            var box = document.getElementById("box");
+            var span = document.getElementById("menu");
+
+
+            box.onmouseenter = function () {
+                boxMove(0);
+            };
+            box.onmouseleave = function () {
+                boxMove(-100);
+                console.log("鼠标移开")
+            }
+
+
+
+
+            function boxMove(iTarget) {
+                var box = document.getElementById("box");
+                var speed = 2;
+                clearInterval(timer);
+                // console.log(speed);
+                timer = setInterval(() => {
+
+                    if (box.offsetLeft < iTarget) {
+                        speed = Math.abs(speed);
+                    } else {
+                        speed = -Math.abs(speed)
+                    }
+
+                    if (box.offsetLeft == iTarget) {
+                        clearInterval(timer);
+                    } else {
+                        box.style.left = box.offsetLeft + speed + "px";
+                    }
+                }, 4)
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+<div id="box">
+    <span id="menu">分享到</span>
+</div>
+
+</html>

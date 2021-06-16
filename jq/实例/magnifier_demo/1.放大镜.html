@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            height: 400px;
+            width: 300px;
+            position: relative;
+            top: 50px;
+            left: 50px;
+            border: 1px black solid;
+        }
+
+        #box1 img {
+            height: 100%;
+            width: 100%;
+        }
+
+        #box2 {
+            height: 200px;
+            width: 150px;
+            position: absolute;
+            top: 50px;
+            left: 500px;
+            border: 1px black solid;
+            overflow: hidden;
+            display: none;
+        }
+
+        #box2 img {
+            height: 800px;
+            width: 600px;
+            display: block;
+            position: absolute;
+        }
+
+        #search {
+            display: none;
+            height: 100px;
+            width: 100px;
+            opacity: 0.4;
+            filter: alpha(opacity=40);
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgb(104, 98, 98)
+        }
+    </style>
+    <script src="/jq/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#box1").mouseenter(function () {
+                    $("#search,#box2").show();
+
+                })
+                .mouseleave(function () {
+                    $("#search,#box2").hide();
+                })
+                .mousemove(function (ev) {
+                    var l = ev.pageX - $(this).offset().left - 50;
+                    var t = ev.pageY - $(this).offset().top - 50;
+
+                    // 限制出框
+                    if (l <= 0) {
+                        l = 0;
+                    }
+                    if (l >= 200) {
+                        l = 200;
+                    }
+                    if (t <= 0) {
+                        t = 0;
+                    }
+                    if (t >= 300) {
+                        t = 300;
+                    }
+                    $("#search").css({
+                        left: l,
+                        top: t
+                    });
+
+                    $("#box2 img").css({
+                        left: -2 * l,
+                        top: -2 * t
+                    })
+                })
+        })
+    </script>
+</head>
+
+<body>
+
+    <div id="box1">
+        <img src="./psc.jpg" alt="">
+        <div id="search"></div>
+    </div>
+    <div id="box2">
+        <img src="./psc.jpg" alt="">
+    </div>
+</body>
+
+</html>

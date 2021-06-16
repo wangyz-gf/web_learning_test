@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        height: 300px;
+        width: 300px;
+        background-color: red;
+        position: absolute;
+        right: 0;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var box = document.getElementById("box");
+
+        var scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        var clientHight =
+          document.documentElement.clientHeight || document.body.clientHeight;
+        var iH = parseInt(scrollTop + (clientHight - box.offsetHeight) / 2);
+        boxMove(iH);
+      };
+
+      window.onscroll = function () {
+        var scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        var clientHight =
+          document.documentElement.clientHeight || document.body.clientHeight;
+        var iH = parseInt(scrollTop + (clientHight - box.offsetHeight) / 2);
+        boxMove(iH);
+      };
+
+      var timer = null;
+
+      function boxMove(iTarget) {
+        var box = document.getElementById("box");
+
+        clearInterval(timer);
+        timer = setInterval(() => {
+          var speed = (iTarget - box.offsetTop) / 8;
+          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+          if (box.offsetTop == iTarget) {
+            clearInterval(timer);
+          } else {
+            box.style.top = box.offsetTop + speed + "px";
+            document.title = box.offsetTop + "," + iTarget;
+          }
+        }, 30);
+      }
+    </script>
+  </head>
+
+  <body style="height: 3000px;">
+    <div id="box"></div>
+  </body>
+</html>

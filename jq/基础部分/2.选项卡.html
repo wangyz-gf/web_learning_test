@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+            background-color: #767676;
+            margin: 5px;
+            color: white;
+        }
+
+        button.active {
+            background-color: #E89703;
+            color: blue;
+        }
+
+        #info div {
+            height: 350px;
+            width: 350px;
+            background-color: #767676;
+            border: 1px black solid;
+            float: left;
+            display: none;
+            margin-left: 5px;
+        }
+    </style>
+    <!-- <script src="/jq/jquery-1.10.1.min.js"></script> -->
+    <script>
+        window.onload = function () {
+            var oBtn = document.getElementsByTagName("button");
+            var info = document.getElementById("info");
+            var infoDiv = document.getElementsByTagName("div");
+
+            for (var i = 0; i < oBtn.length; i++) {
+                oBtn[i].index = i;
+                oBtn[i].onclick = function () {
+                    for (var j = 0; j < oBtn.length; j++) {
+                        oBtn[j].className = "";
+                        infoDiv[j].style.display = "none";
+                    }
+                    this.className = "active";
+                    console.log(this.index)
+                    infoDiv[this.index].style.display = "block";
+                }
+                // 初始化所有颜色
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button class="active">HTML5</button>
+    <button>JavaScript</button>
+    <button>JQuery</button>
+    <main id="info">
+        <div style="display: block;">万维网的核心语言、标准通用标记语言下的一个应用超文本标记语言（HTML）的第五次重大修改（这是一项推荐标准、外语原文：W3C
+            Recommendation、见本处参考资料原文内容：）。20...</div>
+        <div>avaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早...
+        </div>
+        <div>jQuery 教程 jQuery 是一个 JavaScript 库。 jQuery 极大地简化了 JavaScript 编程。 jQuery 很容易学习。 本章节的每一篇都包含了在线实例
+            通过本站的在线编辑器...
+        </div>
+    </main>
+
+</body>
+
+</html>

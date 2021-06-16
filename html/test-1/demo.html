@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>demo</title>
+		<style type="text/css">
+/* 			div{
+				color: red;font-style: initial;
+			} */
+		</style>
+	</head>
+	<body>
+		<div>hello world</div>
+		<script type="text/javascript">
+			let div = document.querySelector("div");
+			let timer = null;
+			let flag = true;
+			div.onmouseover = function(){
+				timer = setInterval(()=>{
+					if(flag){
+						div.style.color = 'blue';
+						div.style.fontStyle = "normal";
+					}
+					else{
+						div.style.color = "red";
+						div.style.fontStyle = "italic";
+					}
+					flag = !flag;
+				},500);
+			};
+			div.onmouseout = function(){
+				clearInterval(timer);
+				div.style.color ='black';
+				div.style.fontStyle ="normal"
+			};
+		</script>
+	</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 找出所有的水仙花数，三位数，各位立方和等于该数本身。153 = 1 ^ 3 + 5 ^ 3 + 3 ^ 3
+
+      /*     for (var i = 100; i < 1000; i++) {
+        var a = parseInt(i / 100);
+        var b = parseInt(i / 10) % 10;
+        var c = i % 10;
+        var sum = Math.pow(a, 3) + Math.pow(b, 3) + Math.pow(c, 3);
+        if (i == sum) {
+          document.write(i + "<br>");
+        }
+      }
+      alert("hello world"); */
+
+      //   输入两个数，求两个数的最大公约数（能够同时整除两个数的最大数）
+      /*       var num1 = 6;
+      var num2 = 12;
+      var min = num1 > num2 ? num2 : num1;
+      while (1) {
+        if (num1 % min == 0 && num2 % min == 0) {
+          break;
+        }
+        min--;
+      }
+      alert(min); */
+
+      // 输入两个数，求两个数的最小公倍数 （能够同时被两个数整除的最小数）
+      /*       var num1 = 6;
+      var num2 = 8;
+      var max = num1 > num2 ? num1 : num2;
+      while (1) {
+        if (max % num1 == 0 && max % num2 == 0) {
+          break;
+        }
+        max++;
+      }
+      alert(max); */
+
+      //   输入两个数n，a，如果n==3，a==2；
+      //     输出 2 + 22 + 222 的值。（不用输出式子）
+      //     如果n==4，a==3；
+      //     输出 3 + 33 + 333 + 3333的值。
+
+      /*      var n = 3;
+      var a = 2;
+      var sum = 0;
+      var tmp = a; //添加的数字
+      for (var i = 1; i <= n; i++) {
+        sum += tmp;
+        tmp = tmp * 10 + a;
+      }
+      alert(sum); */
+
+      //五位数中，对称的数称为回文数，找出所有的回文数。 如12321
+      /*     1. 先找出五位数中的第一位和第五位数比较
+     2. 在找出五位数中第二位和第四位比较。 */
+
+      for (var i = 10000; i < 100000; i++) {
+        var a = i % 10; //第五位
+        var b = parseInt(i / 10) % 10; //第四位
+        var c = parseInt(i / 1000) % 10; //第二位
+        var d = parseInt(i / 10000); //第一位
+        if (a == d && b == c) {
+          document.write(i + "<br>");
+        }
+      }
+    </script>
+  </head>
+
+  <body></body>
+</html>

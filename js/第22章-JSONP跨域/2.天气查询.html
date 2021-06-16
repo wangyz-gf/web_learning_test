@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap.css">
+    <link rel="stylesheet" href="./buttons.css">
+    <script>
+        function show(data) {
+            var info = document.getElementById('info');
+            var tb = document.getElementById("tb");
+
+            info.innerHTML = `天气查询 城市:${data.city} pm2.5:${data.pm25}`;
+
+            var arr = data.weather;
+            var str = "";
+            for (var i = 0; i < arr.length; i++) {
+                str += `
+                <tr>
+                    <td>${arr[i].date}</td>
+                    <td>${arr[i].weather}</td>
+                    <td>${arr[i].wind}</td>
+                    <td>${arr[i].temp}</td>
+                </tr>
+                `;
+            }
+            tb.innerHTML = str;
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            var searchBtn = document.getElementById("searchBtn");
+            var search = document.getElementById('search');
+
+            searchBtn.onclick = function () {
+                var oScript = document.createElement("script");
+                if (!search.value) {
+                    alert("请输入城市");
+                } else {
+                    oScript.src = "http://api.asilu.com/weather/?city=${search.value}'&callback=show";
+                    document.body.appendChild(oScript);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2 id="info">天气查询</h2>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="search">城市名字：</label>
+                    <input type="text" id="search" class="form-control">
+                </div>
+                <button id="searchBtn" class="button button-3d button-action button-pill form-control">查询该城市天气</button>
+            </div>
+            <div class="panel-footer">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>日期</th>
+                            <th>天气</td>
+                            <th>风向</td>
+                            <th>风向</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tb">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

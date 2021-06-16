@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./9.base.css">
+    <script>
+        // 随机颜色方法
+        function randomColor() {
+            var str = "rgba(" + parseInt(Math.random() * 256) + "," + parseInt(Math.random() * 256) + "," + parseInt(
+                Math.random() * 256) + "," + 1 + ")";
+            return str;
+        }
+        window.onload = function () {
+            var oDiv1 = document.getElementById("box1");
+            var oDiv2 = document.getElementById("box2");
+            var input = document.getElementById("input")
+
+            var aBtns = oDiv1.getElementsByTagName("button");
+
+            aBtns[0].onclick = function () {
+                if (!input.value) {
+                    alert("输入内容不能为空");
+                } else {
+                    var newDiv = document.createElement("div");
+                    var newText = document.createTextNode(input.value);
+                    newDiv.appendChild(newText);
+                    newDiv.style.backgroundColor = randomColor();
+                    var newBtn = document.createElement("button");
+                    newBtn.innerHTML = "X";
+                    newDiv.appendChild(newBtn);
+                    newBtn.onclick = function (ev) {
+                        var e = ev || window.event;
+                        var target = e.target || window.event.srcElement;
+                        console.log(target.nodeName);
+                        if (target.nodeName.toLowerCase() == "button") {
+                            console.log(target.parentNode)
+                            oDiv2.removeChild(target.parentNode);
+
+                        }
+                    }
+
+                    oDiv2.appendChild(newDiv);
+                    // input.value = "";
+                }
+            };
+            aBtns[1].onclick = function () {
+                oDiv2.removeChild(oDiv2.lastChild);
+            }
+            aBtns[2].onclick = function () {
+                var newDivClone = oDiv2.lastChild.cloneNode(true);
+                oDiv2.appendChild(newDivClone);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box1">
+        <input type="text" placeholder="请输入内容" id="input">
+        <button>增加</button>
+        <button>删除</button>
+        <button>拷贝</button>
+    </div>
+    <div id="box2">
+        <!-- <div>xxx<button>x</button></div> -->
+    </div>
+
+</body>
+
+</html>

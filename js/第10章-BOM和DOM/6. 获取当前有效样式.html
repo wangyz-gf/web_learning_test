@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 100px;
+            border: 1px black solid;
+            margin: 20px auto;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var boxDiv = document.getElementById("box");
+
+            function getStyle(node, cssStyle) {
+                return node.currentStyle ? node.currentStyle[cssStyle] : getComputedStyle(node)[cssStyle];
+
+            }
+
+            var myBox = getStyle(boxDiv, "height");
+            // alert(myBox);
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="box" style="width: 100px; background-color: red;"></div>
+</body>
+
+</html>

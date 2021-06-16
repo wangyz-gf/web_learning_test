@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 
+        function countOfWord(str) {
+            var count = 0;
+            for (var i = 0; i < str.length - 1; i++) {
+                if (isABC(str[i]) && !isABC(str[i + 1])) {
+                    count++
+                }
+            }
+            return count;
+        }
+
+        function isABC(word) {
+            if (word > "a" && word <= "z" || word >= "A" && word <= "Z") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        document.write(countOfWord("yes,she*is%MY@love."))
+    </script>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+
+        <button @click="handleClick()">获取数据</button>
+        <ul v-for='data in dataList'>
+            <li>
+                <p>{{data.name}}</p>
+                <img :src="data.poster" alt="">
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#box',
+        data: {
+            dataList: []
+        },
+        methods: {
+            handleClick: function () {
+                fetch('./千锋Web前端教程：test.json').then(res => res.json()).then(res => {
+                        console.log(res.data.films);
+                        this.dataList = res.data.films;
+                    })
+                    .catch(err => console.log(err));
+            }
+        }
+    })
+</script>
+
+</html>

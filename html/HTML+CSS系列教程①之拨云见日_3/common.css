@@ -1,0 +1,189 @@
+*{margin: 0;padding: 0;}
+ul,ol{list-style: none;}
+a{text-decoration: none; color: #646464;}
+/* a:hover{color: red;	} */
+img{display: block;}
+h1,h2,h3{font-size: 16px;}
+body{font-family: arial;}
+
+/* 布局 */
+.left{float: left;}
+.right{float: right;}
+.clear::after{content: "";display: block;clear: both;}
+.container{width: 1080px;position: relative;margin: 0 auto;}
+.container-fluid{width: 100%;}
+
+/* 头部 */
+#head{height: 81px;}
+#head .hear-logo{width: 162px;height: 44px;margin-top:19px;}
+#head .head-menu{font-size: 14px;line-height: 81px;}
+#head .head-menu li{margin-left: 58px;float: left;}
+
+/* banner */
+#banner {width: 100%;position: relative;}
+#banner .banner-list{width: 100%;height: 469px;position: relative; }
+#banner .banner-list li{
+	width: 100%; height: 100%;background:no-repeat center 0; 
+	position: absolute; left: 0 ;top:0;opacity: 0;z-index: 1;
+}
+#banner .banner-list li.active{opacity: 1;z-index: 10;}
+#banner .banner-btn{position: absolute;	}
+#banner .banner-btn {
+	width: 100%;position: absolute;bottom: 19px;
+	text-align: center;font-size: 0;z-index: 20; 	
+}
+#banner .banner-btn li{
+	display: inline-block;width: 12px;height: 12px;
+	border: 2px white solid;border-radius: 50%;
+	box-sizing: border-box;margin: 0 11px;
+}
+#banner .banner-btn li.active{
+	background-color: white;
+}
+
+/* 通用标题 */
+#service {overflow: hidden; min-height: 407px;}
+/* margin-top在这里会出现传递的问题，所以需要在父容器使用去除，用overflow:hidden */
+.area-title{
+	margin-top:61px;text-align: center;
+	background: url(img2/title_bg.png) no-repeat center 7px ;
+	}
+.area-title h2{
+	height: 20px;line-height: 20px;font-size:20px;color: #363636;}
+.area-title p{
+	font-size: 14px;line-height: 34px;
+	color: #9f9f9f;
+}
+
+/* services: ; */
+#service .service-list{
+	text-align: center;
+	margin-top: 34px;
+}
+#service .service-list li{
+	float: left;margin: 0 10px;width: 250px;
+}
+#service .service-list div{
+	width: 102px;height: 102px;
+	margin: 0 auto ;
+}
+#service .service-list li:nth-of-type(1) div{
+	background-image:url(img2/web1.png);
+}
+#service .service-list li:nth-of-type(2) div{
+	background-image:url(./img2/e-bussiness1.png);
+}
+#service .service-list li:nth-of-type(3) div{
+	background-image:url(./img2/graphic1.png);
+}
+#service .service-list li:nth-of-type(4) div{
+	background-image:url(./img2/mail1.png);
+}
+#service .service-list h3{
+	font-size: 18px;color: #434343;line-height: 36px;
+	margin-top: 25px;
+}
+#service .service-list p{
+	font-size: 14px;color: #6d6d6d;line-height: 22px;
+}
+
+
+ /* case */
+ #case{
+	background-color: #F8F8F8;
+ }
+ #case .container{
+	 min-height: 460px; overflow: hidden;
+ }
+ #case .area-title {
+	 
+ }
+#case .area-title h2{
+	color: #66c5b4;
+}
+#case .case-list{
+	margin-top:28px;
+	/* 因为字体的行高是34px,字体是14px，所以下面为10px,设计图中38还要减去10px*/
+}
+#case .case-list li {
+	width: 340px;margin: 0 10px;float: left;
+}
+#case .case-btn{
+	width: 176px;height: 37px;
+	 background-color: #66c5b4;
+	 border-radius: 15px;
+	 margin: 0 auto;
+	 margin-top: 36px;
+	 font-size: 14px;color: white;
+	 text-align: center;line-height: 37px;
+}
+#case .case-btn a{
+	color: white;width: 100%;height: 100%;
+	display: block;
+}
+
+/*NEWS */
+#news{
+	overflow: hidden;
+	min-height: 451px;
+}
+#news .area-title{
+	margin-top:68px;
+}
+#news dl{
+	margin-top: 48px;
+}
+#news dt{
+	width: 234px;
+}
+#news dd{
+	width: 846px;
+}
+#news .news-list{
+	width: 100%;
+}
+#news .news-list li{
+	width: 50%;float: left; 
+	margin-bottom: 48px;
+}
+#news .news-date{
+	border-right: 1px #DCDCDC solid;width: 71px;height: 70px;
+	text-align: center;
+	/* margin: 0 auto; */
+}
+#news .news-date b{
+	font-size: 39px;color: #66c5b4;
+	display: block;
+
+}
+#news .news-date span{
+	font-size: 20px;color:#999999 ;line-height: 36px;
+}
+#news .news-text{
+	margin-left: 20px;width: 310px;
+}
+#news .news-text h3{
+	font: 14px;
+}
+#news .news-text h3 a{
+	color:  #3f3f3f;
+}
+#news .news-text p{
+	font-size: 12px;color: #a4a4a4;line-height: 21px;
+	margin-top: 17px;
+}
+
+/* footer */
+#foot{
+	background-color: #66C5B4;
+}
+#foot .container{
+	height: 54px;
+	font-size: 12px;
+	line-height: 54px;
+	color: white
+}
+#foot a{
+	margin: 0 10px;
+	color: white
+}

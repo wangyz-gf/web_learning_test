@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        height: 200px;
+        width: 200px;
+        background-color: red;
+        position: absolute;
+        left: 100px;
+        top: 0;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var Btn = document.getElementById("btn");
+        var resetBtn = document.getElementById("btn1");
+        var Box = document.getElementById("box");
+
+        var timer = null;
+        Btn.onclick = function () {
+          clearInterval(timer);
+          var speed = 5;
+          timer = setInterval(() => {
+            if (Box.offsetLeft >= 500) {
+              clearInterval(time);
+            } else {
+              Box.style.left = Box.offsetLeft + speed + "px";
+              console.log(Box.style.left);
+            }
+          }, 30);
+        };
+        resetBtn.onclick = function () {
+          clearInterval(timer);
+          Box.style.left = 100 + "px";
+        };
+      };
+    </script>
+  </head>
+
+  <body>
+    <button id="btn">按钮</button>
+    <button id="btn1">重置</button>
+    <div id="box"></div>
+  </body>
+</html>

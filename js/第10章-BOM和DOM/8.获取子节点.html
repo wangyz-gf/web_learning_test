@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+
+            // alert(box.firstChild);
+            alert(box.childNodes.length);
+            for (var i = 0; i < box.childNodes.length; i++) {
+                document.write(box.childNodes[i]);
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <em>em文本</em> div文本<strong>strong文本</strong></div>
+</body>
+
+</html>

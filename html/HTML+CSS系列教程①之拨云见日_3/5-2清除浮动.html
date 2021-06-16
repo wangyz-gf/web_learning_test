@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>清除浮动</title>
+		<style>
+/* 			#box1{
+				height: 100px;width: 100px;
+				background: red;
+				float: left;
+			}
+			#box2{
+				height: 200px;width: 200px;
+				background-color: blue;
+				float: left;
+				clear: both;
+			} */
+			#box1{
+				width: 200px;
+				/* height: 200px; */
+				border: 1px black solid;
+				/* float: left; */
+				/* overflow: hidden; */
+				/* display: inline-block; */
+			}
+			.clear::after{
+				content: "";
+				display: block;
+				clear: both ;
+			}
+			#box2{
+				width: 100px;height: 200px;
+				background-color: red;
+				float: left; 
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 上下排列 -->
+<!-- 		<div id="box1"></div>
+		<div id="box2"></div> -->
+		
+		<!-- 嵌套排列 -->
+		<div id="box1" class="clear">
+			<div id="box2"></div>
+			<!-- <div clear></div> -->
+		</div>
+		<p>daklfja</p>
+	</body>
+</html>

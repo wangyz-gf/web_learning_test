@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>css选择器</title>
+		<style type="text/css">
+/* 			#box1{
+				background-color: blue;
+				width: 100px;
+				height: 100px;
+			}
+			.box1{
+				background: #BA77BC;width: 100px;height: 100px;
+			}
+			.content{
+				background: #D16318;
+			}
+			div.box1{
+				background-color: #FF0000; 
+			} */
+/* 			div, #text,.title{
+				background-color: #FF0000;
+			} */
+			/* 后代选择器 */
+/* 			ul li{
+				border: #0000FF 1px solid;
+			} */
+			/* 父子选择器 */
+/* 			.ul1>li{
+				border: #0000FF 1px solid;
+			}
+			/* 兄弟选择器 */
+/* 			#div-h2~h2{
+				background-color: red;
+			} */ 
+			/* 属性选择器 */
+/* 			div[class]{
+				background-color: red;
+			} */
+/* 			div[class=box]{
+				background-color: red;
+			} */
+/* 			div[class*=search]{
+				background-color: red;
+			} */
+/* 			div[class^=search]{
+				background-color: blue;
+			} */
+/* 			div[class$=search]{
+				background-color: #D16318;
+			} */
+/* 			div[class][id]{
+				background-color: #FFFF00;
+			} */
+			/* 伪类选择器 */
+			div{
+				height: 200px;width: 200px; background-color: #BA77BC;
+			}
+			div:hover{
+				background-color: #58BBF7;
+			}
+			div:active{
+				background-color: #FFFF00;
+			}
+			a:link{color: red;}
+			a:visited{color: blue;}
+			a:hover{color: #58BBF7;}
+			a:active{color: #FFFF00;}
+			p:after{
+				content: "word";
+			}
+			:checked{height: 100px;width: 100px;}
+			:disabled{height: 100px;width: 100px;}
+			:focus{
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- id选择器 -->
+<!-- 		<div id="box1">这是一个块</div>
+		<div id="box1">这是另一个块</div> -->
+		<!-- 类选择器 -->
+		<!-- <div class="box1 content">第三个块</div> -->
+<!-- 		群组选择器
+		<div>这是一个块</div>
+		<p id="text">这是一个段落</p>
+		<h class="title">这是一个标题</h> -->
+		<!-- 层次选择器 -->
+			<!-- 后代选择器 -->
+<!-- 			<ul class="ul1">
+				<li>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</li>
+				<li></li>
+				<li></li>
+			</ul> -->
+<!-- 			兄弟选择器
+			<h2>这是一个标题</h2>
+			<div id="div-h2"></div>
+			<h2>这是一个标题</h2> -->
+			<!-- 属性选择器 -->
+	<!-- 		<div>aaaa</div>
+			<div class="box" id="box2">bbbb</div>
+			<div class="search">cccc</div>
+			<div class="search-btn">dddd</div>
+			<div class="btn-search">dddd</div> -->
+		
+			<!-- 伪类选择器 -->
+			<div></div>
+			<a href="#">这是一个链接</a>
+			<p>hello</p>
+			<input type="checkbox" checked>
+			<input type="checkbox" disabled="">
+			<input type="checkbox">
+			<input type="text">
+	</body>
+</html>

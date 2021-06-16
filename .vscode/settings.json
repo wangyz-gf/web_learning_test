@@ -1,0 +1,7 @@
+{
+    "open-in-browser.default": "chrome",
+    "liveServer.settings.port": 5501,
+    "debug.javascript.pickAndAttachOptions": {
+        
+    }
+}

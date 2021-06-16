@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        height: 100px;
+        width: 100px;
+        background: red;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        margin-top: 50px;
+        /* position: absolute; */
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var box = document.getElementsByTagName("div");
+
+        for (var i = 0; box.length; i++) {
+          box[i].onmouseenter = function () {
+            boxMove(this, 300);
+          };
+          box[i].onmouseout = function () {
+            boxMove(this, 100);
+          };
+        }
+      };
+
+      function boxMove(node, iTarget) {
+        clearInterval(node.timer);
+        node.timer = setInterval(() => {
+          var speed = (iTarget - node.offsetWidth) / 8;
+          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+          if (node.offsetWidth == iTarget) {
+            clearInterval(node.timer);
+          } else {
+            node.style.width = node.offsetWidth + speed + "px";
+          }
+        }, 30);
+      }
+    </script>
+  </head>
+
+  <body></body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <button @click='handleClick()'>获取数据</button>
+        <ul v-for='data in dataList'>
+            <li>{{data.name}}</li>
+            <img :src="data.poster" alt="">
+        </ul>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#box',
+        data: {
+            dataList: []
+        },
+        methods: {
+            handleClick: function () {
+                axios.get('./千锋Web前端教程：test.json').then(res => {
+                    console.log(res.data.data.films);
+                    var newDataList = res.data.data.films;
+                    this.dataList = newDataList;
+                }).catch(function (err) {
+                    console.log(err)
+                })
+            }
+        }
+    })
+</script>
+
+</html>

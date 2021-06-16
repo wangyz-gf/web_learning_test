@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <ul>
+            <!-- 数组遍历 -->
+            <li v-for='(data,index) in dataList '>{{data}}--{{index}}</li>
+            <!-- 对象遍历 -->
+            <br>
+
+        </ul>
+        <ul>
+            <li v-for='(obj,key) in objArr'>{{obj}}---{{key}}</li>
+        </ul>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#box',
+        data: {
+            dataList: ['12', 'hello', 'world'],
+            objArr: {
+                name: 'jason',
+                age: 18,
+                sex: 'man',
+            }
+        },
+        methods: {}
+    })
+</script>
+
+</html>

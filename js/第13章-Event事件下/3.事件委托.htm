@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script>
+        window.onload = function () {
+            var oUl = document.getElementById("oUl");
+            var oLi = oUl.getElementsByTagName("li");
+            var oButton = document.getElementById("button");
+
+            var count = 0; //用来计算
+            oUl.onclick = function (ev) {
+                count++;
+                var e = ev || window.event;
+                var target = e.target || window.event.srcElement;
+                if (target.nodeName.toLowerCase() == "li" && count % 2 == 1) {
+                    target.style.backgroundColor = "red";
+                }
+                if (count % 2 == 0) {
+                    target.style.backgroundColor = "";
+                }
+
+            }
+            var i = 6;
+            oButton.onclick = function () {
+                var newNode = document.createElement("li");
+                newNode.innerHTML = i++ * 1111;
+                oUl.appendChild(newNode);
+            }
+        }
+
+        // button事件
+    </script>
+</head>
+
+<body>
+    <button id="button">新增节点</button>
+    <ul id="oUl">
+        <li>111</li>
+        <li>222</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+</body>
+
+</html>

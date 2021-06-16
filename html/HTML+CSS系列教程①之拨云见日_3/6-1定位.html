@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>定位</title>
+		<style>
+			#box1{
+				height: 100px;width: 100px;
+				background-color: red;
+			}
+			#box2{
+				height: 100px;width: 100px;
+				background-color: #0000FF;
+				position: relative;
+				left: 100px;
+				/* float: left; */
+			}
+			#box3{
+				height: 100px;width: 100px;
+				background-color: #58BBF7;
+				/* float: left; */
+			}
+			#box4{
+				width: 100px;height: 100px;
+				 background-color: red;
+				 position: absolute;
+			}
+			#box5{
+				width: 200px;height: 200px;
+				background-color: #0000FF;
+			}
+			span{
+				height: 100px;width: 100px;
+				background-color: red;
+				position: absolute; 
+			}
+			#box6{
+				margin: 200px auto;
+				height: 100px;width: 100px;
+				/* background: red; */
+				border: 1px black solid;
+				/* position: relative; */
+			}
+			#box7{
+				height: 20px;width: 20px;
+				background-color: #8DE935;
+			}
+			#box8{
+				height: 30px;width: 30px;
+				background-color: 	red; 
+				position: absolute; left: 0;top: 0;	
+			}
+			body{
+				height: 2000px;
+			}
+			#box9{position: fixed;bottom: 0;right:0;}
+			#box10{
+				height: 50px;
+				background: red;
+				position: sticky;top: 10px;
+			}
+			#box11{
+				height: 100px;width: 100px;
+				background: red;
+				border: 1px black solid;
+				position: absolute;
+				z-index: 1;
+			}	 
+			#box12{
+				height: 100px;width: 100px;
+				background: blue;
+				position: absolute;
+				z-index: 0;
+				
+			}
+			#box13{
+				height: 100px;width: 100px;
+				background-color: #000000;
+				position: absolute;left: 50px;top: 50px;
+				z-index: -1;
+			}
+		</style> 
+	<body>
+	<!-- 	 <div id="box1"></div>
+		 <div id="box2"></div>
+		 <div id="box3"></div> -->
+		 
+		 <!--absolute定位 -->
+<!-- 		 <div id="box4"></div>
+		 <div id="box5"></div> -->
+		 
+		  <!-- <span>绝对定位</span> -->
+		 
+<!-- 		 <div id="box6">
+			  <div id="box7"></div>
+			  <div id="box8"></div>
+		 </div> -->
+		
+		<!-- fixed定位 -->
+			<!-- <div id="box9"><a href="#">返回顶部</a></div> -->
+		
+		<!-- sticky定位-->
+<!-- 		<p>aaa</p>
+		<p>aaa</p>
+		<p>aaa</p>
+		<p>aaa</p>
+		<p>aaa</p>
+		<div id="box10"></div>
+		<p>aaa</p>
+		<p>aaa</p>
+		<p>aaa</p>
+		<p>aaa</p>
+		<p>aaa</p> -->
+		
+		<!-- zln层级 -->
+		<div id="box11">
+			<div id="box12"></div>
+		</div>
+		<div id="box13"></div>
+	</body>
+</html>

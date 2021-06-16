@@ -1,0 +1,12 @@
+{
+  "name": "gulpdemo",
+  "version": "1.0.0",
+  "description": "gulp_learning",
+  "main": "index.js",
+  "scripts": {},
+  "author": "hys",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}

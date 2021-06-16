@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 300px;
+            width: 300px;
+            margin: 100px auto;
+            border: 1px black solid;
+            font-size: 20px;
+            text-align: center;
+            line-height: 300px;
+        }
+    </style>
+    <script>
+        function randomColor() {
+            var str = "rgba(" + parseInt(Math.random() * 256) + "," + parseInt(Math.random() * 256) + "," +
+                parseInt(Math.random() * 256) + "," + 1 + ")";
+            return str
+        }
+
+        function getStyle(node, cssStyle) {
+            return node.currentStyle ? node.currentStyle[cssStyle] : getComputedStyle(node)[cssStyle];
+        }
+        window.onload = function () {
+            var speed = 5; //变化速度
+            var count = 0; //用来计数
+            var box = document.getElementById("box");
+            setInterval(() => {
+                box.style.color = randomColor();
+                var curFontSize = parseInt(getStyle(box, "fontSize"));
+                // console.log(curFontSize);
+                box.style.fontSize = curFontSize + speed + "px";
+                count++;
+                if (count % 6 == 0) {
+                    speed *= -1;
+                }
+
+            }, 1000)
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">div文本</div>
+</body>
+
+</html>

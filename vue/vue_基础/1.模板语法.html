@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div v-html='msg'></div>
+    <div id="box">{{10+20}}</div>
+</body>
+<script type="text/javascript">
+    // 添加vue实例
+    var app = new Vue({
+        el: 'div',
+        data: {
+            msg: "<h1>这是一个h1元素内容</h1>"
+        }
+    });
+</script>
+
+</html>

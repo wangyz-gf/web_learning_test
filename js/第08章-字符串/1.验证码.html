@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 随机验证码
+        function numTestCode(num) {
+            var arr = [];
+            for (var i = 0; i < num; i++) {
+                var code = parseInt(Math.random() * 10);
+                arr.push(code);
+            }
+            return arr.join("");
+        }
+        alert(numTestCode(6));
+
+
+        // 含有英文的验证吗
+        function codeTextNumEng(n) {
+            var arr = [];
+            for (var i = 0; i < n; i++) {
+                var num = parseInt(Math.random() * 123);
+                if (num >= 0 && num <= 9) {
+                    arr.push(num);
+                } else if (num <= 122 && num >= 97 || num >= 65 && num <= 90) {
+                    arr.push(String.fromCharCode(num));
+                    // 它不能作为您已创建的 String 对象的方法来使用。因此它的语法应该是 String.fromCharCode()，而不是 myStringObject.fromCharCode()。
+                } else {
+                    i--
+                }
+            }
+            return arr.join("");
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

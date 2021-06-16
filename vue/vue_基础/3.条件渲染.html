@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <button @click="isChange()">change</button>
+        <div v-if='isActive'>
+            <li v-for='data in dataList'>
+                {{data}}
+            </li>
+        </div>
+
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#box',
+        data: {
+            isActive: false,
+            dataList: []
+        },
+        methods: {
+            isChange: function () {
+                this.isActive = !this.isActive;
+                this.dataList = ['111', '222', '333']
+            }
+        }
+    })
+</script>
+
+</html>

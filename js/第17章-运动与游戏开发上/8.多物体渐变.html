@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            background: red;
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+            margin-top: 50px;
+            /* position: absolute; */
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementsByTagName("div");
+
+            for (var i = 0; box.length; i++) {
+                box[i].alpha = 30;
+                box[i].onmouseenter = function () {
+                    boxMove(this, 100);
+                };
+                box[i].onmouseleave = function () {
+                    boxMove(this, 30);
+                };
+            }
+        };
+
+        function boxMove(node, iTarget) {
+            clearInterval(node.timer);
+            node.timer = setInterval(() => {
+                var speed = (iTarget - node.alpha) / 8;
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+                if (node.alpha == iTarget) {
+                    clearInterval(node.timer);
+                } else {
+                    node.alpha += speed;
+
+                    node.style.opacity = (node.alpha) / 100;
+                    node.style.filter = `alpha(opacity=${node.alpha})`
+                }
+            }, 30);
+        }
+    </script>
+</head>
+
+<body></body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+</html>

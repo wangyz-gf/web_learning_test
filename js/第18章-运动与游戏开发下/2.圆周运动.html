@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #circular {
+            height: 30px;
+            width: 30px;
+            background-color: red;
+            position: absolute;
+            margin: 20px auto;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oCir = document.getElementById("circular");
+            var x = 400;
+            var y = 400;
+            var r = 100;
+
+            var i = 0;
+            timer = setInterval(function () {
+                i++;
+                var angle = i * (Math.PI / 180);
+                var a = Math.sin(angle) * r;
+                var b = Math.cos(angle) * r;
+
+                oCir.style.left = x + a + "px";
+                oCir.style.top = y - b + "px";
+
+                var node = document.createElement("div");
+                node.style.width = "5px";
+                node.style.height = "5px";
+                node.style.backgroundColor = "black";
+                node.style.left = oCir.offsetLeft + "px";
+                node.style.top = oCir.offsetTop + "px";
+                node.style.position = "absolute";
+                document.body.appendChild(node);
+            }, 30)
+        }
+    </script>
+</head>
+
+<body>
+    <div id="circular"></div>
+</body>
+
+</html>

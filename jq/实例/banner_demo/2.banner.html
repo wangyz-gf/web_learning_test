@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #box {
+            width: 470px;
+            height: 150px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #num {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            z-index: 2;
+        }
+
+        #num li {
+            display: block;
+            height: 20px;
+            width: 20px;
+            color: #E46F10;
+            background-color: #E6DBBD;
+            border: 1px solid #E46F10;
+            text-align: center;
+            cursor: pointer;
+            float: left;
+            margin-right: 4px;
+        }
+
+        #num li.active {
+            color: white;
+            background-color: #E8A53E;
+        }
+
+        #img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #img li {
+            display: block;
+            height: 150px;
+            width: 470px;
+        }
+    </style>
+    <script src="/jq/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            var oIndex = 0;
+            var timer = null;
+
+            var oItem = $("#num").find("li");
+            var oUl = $("#img");
+            var oImg = $("#img").find("li");
+
+            oItem.on("click", function () {
+                oIndex = $(this).index();
+                tab();
+            });
+
+            // 这是定时器（没有点击的时候出现）
+            timer = setInterval(function () {
+                oIndex++;
+                tab();
+            }, 2000);
+
+
+            oUl.on("mousemove", function () {
+                clearInterval(timer);
+            }).on("mouseleave", function () {
+                timer = setInterval(function () {
+                    oIndex++;
+                    tab();
+                }, 2000);
+            })
+
+
+
+
+            // 封装tab函数
+            function tab() {
+                oItem.attr("class", "").eq(oIndex).attr("class", "active");
+                if (oIndex == oItem.size()) {
+                    oItem.eq(0).attr("class", "active");
+                };
+                oUl.animate({
+                    top: -150 * oIndex
+                }, 500, function () {
+                    // 判断是否为最后一张图
+                    if (oIndex == oImg.size()) {
+                        oIndex = 0;
+                        oUl.css("top", 0)
+                    }
+                })
+
+            }
+
+
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="num">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <ul id="img">
+            <li><img src="./img/1.jpg" alt=""></li>
+            <li><img src="./img/2.jpg" alt=""></li>
+            <li><img src="./img/3.jpg" alt=""></li>
+            <li><img src="./img/4.jpg" alt=""></li>
+            <li><img src="./img/5.jpg" alt=""></li>
+            <li><img src="./img/1.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+
+</html>

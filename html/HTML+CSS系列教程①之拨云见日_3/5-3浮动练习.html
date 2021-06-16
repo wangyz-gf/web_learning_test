@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>浮动练习</title>
+		<style>
+			/* 重置样式 */
+			*{margin: 0;padding: 0;}
+			ul{list-style: none;}
+			img{display: block;}
+			a{text-decoration: none; color: #666;}
+			h1,h2,h3{font-size: 16px;}
+			
+			.left{float: left;}
+			.right{float: right;}
+			.clear::after{content: "";display: block; clear:both;}
+			 
+			 #main{
+				 width: 366px;
+				 border: 1px black dashed ;
+				 margin: 20px auto;
+				 /* margin-bottom: 0; */
+			 }
+/* 			 #main::after{
+				 content: "";display: block;clear: both;
+			 } */
+			#main .title{	
+				height:23px;line-height: 23px;	
+				font-size: 12px;font-weight: bold;
+				padding-left: 30px;
+				background: url(./image/填充背景2.png) no-repeat 3px 2px ,url(./image/浮动填充背景.png) repeat-x;
+			}
+			#main ul{
+				overflow: hidden;
+				margin-top: 13px;
+				}
+			#main li{
+				margin-bottom: 22px;
+			}
+			#main .img{
+				border: 1px #D3D7DF solid ;
+				height: 122px;width: 97px;
+				margin-left: 5 px;
+				
+			}
+			#main .img img{
+				margin: 2px;
+			}
+			#main .content{
+				width: 240px;
+				font-size: 12px;line-height: 20px;
+				margin-left: 13px ;
+			}
+			#main .content h2{
+				line-height: 24px;
+				font-size: 12px;
+			}
+			#mian .content p{
+				line-height: 20px;
+				font-size: 12px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main"  >
+			<h2 class="title">外媒评论精选</h2>
+			<ul>
+				<li class="clear">
+					<div class="left img">
+						<a href="#"><img src="./image/浮动图片.png" ></a>
+					</div>
+					<div class="left content">
+						<h2>测试标题</h2>
+						<p>测试内容测试内容测试内容测试内容....</p><a href="">[详细]</a>
+					</div>
+				</li>
+				<li class="clear">
+					<div class="left img">
+						<a href="#"><img src="./image/浮动图片.png" ></a>
+					</div>
+					<div class="left content">
+						<h2>测试标题</h2>
+						<p>测试内容测试内容测试内容测试内容....</p><a href="">[详细]</a>
+					</div>
+				</li>
+				<li class="clear">
+					<div class="left img">
+						<a href="#"><img src="./image/浮动图片.png" ></a>
+					</div>
+					<div class="left content">
+						<h2>测试标题</h2>
+						<p>测试内容测试内容测试内容测试内容....</p><a href="">[详细]</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

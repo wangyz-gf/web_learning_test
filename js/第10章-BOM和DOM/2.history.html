@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+
+            function goBack() {
+                history.back();
+            }
+
+            function goForward() {
+                history.forward();
+            }
+
+            function go() {
+                history.go(0);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="history.back()" id="back">back</button>
+    <button onclick="history.forward();">forward</button>
+    <button onclick=" history.go()">go</button>
+    <button onclick="alert(history.length)"> 获取历史记录条数</button>
+</body>
+
+</html>

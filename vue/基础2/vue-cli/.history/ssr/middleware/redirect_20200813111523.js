@@ -1,0 +1,1 @@
+export default function({ isHMR, app, store, route, params, error, redir ect }) {

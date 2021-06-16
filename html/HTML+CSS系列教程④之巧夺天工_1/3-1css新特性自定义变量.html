@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --color: red;
+            --number: 100px;
+            /* --size: 50; */
+
+        }
+
+        div {
+            background-color: var(--color);
+            height: var(--number);
+            width: calc(var(--size) *1px);
+            font-size: var(--size, 100px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        aaa
+    </div>
+</body>
+
+</html>

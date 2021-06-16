@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            height: 600px;
+            width: 300px;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+
+        #div1 img {
+            height: 100%;
+            width: 100%;
+        }
+
+        #div2 {
+            height: 150px;
+            width: 150px;
+            opacity: 0.5;
+            filter: opacity(50%);
+            position: absolute;
+            background-color: white;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        #div3 {
+            position: absolute;
+            left: 500px;
+            top: 100px;
+            height: 600px;
+            width: 600px;
+            overflow: hidden;
+            border: 1px black solid;
+        }
+
+        #div3 img {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv1 = document.getElementById("div1");
+            var oImg1 = document.getElementById("img1");
+            var oDiv2 = document.getElementById("div2");
+            var oDiv3 = document.getElementById("div3");
+            var oImg2 = document.getElementById("img2");
+            // alert(oImg2);
+            oDiv1.onmouseover = function () {
+                oDiv2.style.display = "block";
+                oImg2.style.display = "block";
+            }
+            oDiv1.onmouseout = function () {
+                oDiv2.style.display = "none";
+                oImg2.style.display = "none";
+            }
+
+            oDiv2.onmousemove = function (ev) {
+                var e = ev || window.event;
+                var l = e.clientX - oDiv1.offsetLeft - 75;
+                var t = e.clientY - oDiv1.offsetTop - 75;
+
+                if (l <= 0) {
+                    l = 0;
+                }
+                if (l >= 150) {
+                    l = 150;
+                }
+                if (t <= 0) {
+                    t = 0;
+                }
+                if (t >= 450) {
+                    t = 450;
+                }
+                oDiv2.style.left = l + "px";
+                oDiv2.style.top = t + "px";
+
+                oImg2.style.left = l * (-3.5) + "px";
+                oImg2.style.top = t * (-3.5) + "px";
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="div1">
+        <img src="./timg.jpeg" alt="" id="img1">
+        <div id="div2"></div>
+    </div>
+    <div id="div3">
+        <img src="./timg.jpeg" alt="" id="img2">
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Dog(name, type, age) {
+            this.name = name;
+            this.type = type;
+            this.age = age;
+            this.sum = function () {
+                console.log(`${name}是一只${type}`);
+            }
+        }
+        Dog.prototype = {
+            finger: 10,
+            showColor: function () {
+                alert(`这是一个${this.type}的,${this.age}岁的,叫${this.name}的小狗`);
+            }
+        }
+
+
+        // 原型继承
+        /
+
+
+
+
+        /*             function Taddy(name) {
+                        this.name = name;
+                    }
+
+                    Taddy.prototype = new Dog();
+                    var obj1 = new Taddy("xiaohong");
+                    console.log(obj1.name);
+                    console.log(obj1.figer); */
+
+
+        // 组合型
+        Taddy.prototype = new Dog();
+        Taddy.prototype = {
+            showColor: function () {
+                alert(`这是一个${this.type}的,${this.age}岁的,叫${this.name}的小狗,${this.color}`);
+            }
+        }
+        // 构造函数继承
+
+        function Taddy(name, type, age, color) {
+            Dog.call(this, name, type, age)
+            this.color = color;
+        }
+        // var tad1 = new Taddy("xiaohong", "taidi");
+        // console.log(tad1.name);
+
+
+        var ted2 = new Taddy("xiaohong", "taidi", 10, "red");
+
+        console.log(ted2.color)
+        console.log(ted2.name);
+        console.log(ted2.showColor());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

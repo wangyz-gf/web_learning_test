@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #img {
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var Img = document.getElementById("img");
+
+            Img.onmouseenter = function () {
+                setOpacity(100);
+            }
+            Img.onmouseleave = function () {
+                setOpacity(30)
+            }
+        }
+        var alpha = 30;
+        var timer = null;
+
+
+        function setOpacity(iTarget) {
+            var Img = document.getElementById("img");
+            var speed = 2;
+            clearInterval(timer);
+            timer = setInterval(() => {
+                if (alpha > iTarget) {
+                    speed = -Math.abs(speed);
+                } else(
+                    speed = Math.abs(speed)
+                )
+
+                if (alpha == iTarget) {
+                    clearInterval(timer);
+                } else {
+                    alpha += speed;
+                    Img.style.opacity = alpha / 100;
+                    Img.style.filter = `alpha(opacity=${alpha})`
+                }
+
+
+            }, 3)
+        }
+    </script>
+
+</head>
+
+<body>
+
+</body>
+<img src="./timg.jpeg" alt="" id="img">
+
+</html>

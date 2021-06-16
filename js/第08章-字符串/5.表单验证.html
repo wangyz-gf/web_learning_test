@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            height: 300px;
+            width: 400px;
+            background-color: #9CC0D2;
+            border: solid 1px black;
+            margin: 20px auto;
+        }
+
+        #first-input {
+            margin: 20px 0 0 20px;
+            height: 30px;
+
+        }
+
+        #sec-input {
+            margin-top: 50px;
+            margin-left: 20px;
+            height: 30px;
+
+        }
+
+        span {
+            font-size: 12px;
+            display: block;
+            margin-top: 20px;
+            text-indent: 10px;
+            color: red;
+        }
+    </style>
+    <script>
+        function func() {
+            var inputWord1 = document.getElementById("first-input");
+            var spanWord = document.getElementById("input-text");
+            var inputValue = inputWord1.value;
+            //判断长度是否合适
+            if (inputValue.length < 6 || inputValue.length > 18) {
+                spanWord.innerHTML = "❗长度应为6-18个字符";
+            }
+            // 首字母是否为英文
+            else if (!isABC(inputValue[0])) {
+                spanWord.innerHTML = "❗️邮件地址必需以英文字母开头";
+            } else {
+                var isYes = true;
+                for (var i = 0; i < inputValue.length; i++) {
+                    if (!isDEF(inputValue[i])) {
+                        isYes = false;
+                        break;
+                    }
+                }
+                if (isYes) {
+                    spanWord.innerHTML = "✅恭喜，该邮件地址可注册"
+                } else {
+                    spanWord.innerHTML = "❗️邮件地址需由字母、数字或下划线组成";
+                }
+            }
+
+
+        }
+
+        // 判断字符是否为字母
+        function isABC(num) {
+            if (num >= "a" && num <= "z" || num >= "A" && num <= "Z") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        // 判断字符是否可以下划线及其他
+        function isDEF(num) {
+            if (num >= "a" && num <= "z" || num >= "A" && num <= "Z" || num >= 0 && num <= 9 || num == "_") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</head>
+<div class="parent">
+    <input type="text" placeholder="用户名" id="first-input" onblur="func()">
+    <span id="input-text">6-18个字符，可使用字母、数字、下划线，需以字母开头</span>
+    <input type="password" placeholder="密码" id="sec-input">
+</div>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+<template>
+    <nav>
+        route<div class="alert alert-primary" role="alert">
+            <strong>Warning!</strong> <a href="#" class="alert-link"></a>
+        </div>
+
+    </nav>
+
+</template>

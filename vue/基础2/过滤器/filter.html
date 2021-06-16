@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <ul>
+            <li v-for='(data,index) in datalist'>
+                <h2>{{data.nm}}</h2>
+                <!-- <img :src="data.img | myfilter" alt=""> -->
+                <img :src="imgshow(data.img)" alt="">
+            </li>
+        </ul>
+
+    </div>
+</body>
+<script>
+    // 过滤器
+    Vue.filter('myfilter', function (data) {
+        return data.replace('w.h', '128.180')
+    })
+    var vm = new Vue({
+        el: '#box',
+        data: {
+            datalist: [],
+        },
+        mounted() {
+            axios.get('./text.json').then(res => {
+                console.log(res.data.movieList);
+                this.datalist = res.data.movieList;
+            })
+        },
+        methods: {
+            imgshow(data) {
+                return data.replace('w.h', '128.180')
+            }
+        }
+    })
+</script>
+
+</html>

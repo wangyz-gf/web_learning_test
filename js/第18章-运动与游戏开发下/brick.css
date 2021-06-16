@@ -1,0 +1,32 @@
+#box {
+    height: 600px;
+    width: 600px;
+    border: 1px black solid;
+    position: relative;
+    margin: 50px auto;
+}
+
+#ball {
+    height: 20px;
+    width: 20px;
+    background-color: red;
+    position: absolute;
+    bottom: 30px;
+    left: 290px;
+    border-radius: 50%;
+}
+
+#slider {
+    height: 30px;
+    width: 100px;
+    background-color: blue;
+    position: absolute;
+    bottom: 0;
+    left: 250px;
+}
+
+#brick div {
+    height: 20px;
+    width: 100px;
+    float: left;
+}

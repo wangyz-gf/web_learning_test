@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 100px;
+            width: 100px;
+            border: 1px black solid;
+        }
+    </style>
+    <script>
+        /*         var arr = [/nm/ig, /tmd/ig, /nm/ig]
+
+        function btnClick() {
+            var areaText = document.getElementById("text");
+            var divBox = document.getElementById("box");
+
+            var Ovalue = areaText.value;
+            for (var i = 0; i < arr.length; i++) {
+                var getWord = Ovalue.replace(arr[i], "*");
+            }
+            divBox.innerHTML = getWord;
+
+        } */
+
+
+        var arr = [/nm/ig];
+
+        function btnClick() {
+            var areaText = document.getElementById("text");
+            var divText = document.getElementById("box");
+
+            var getValue = areaText.value;
+            for (var i = 0; i < arr.length; i++) {
+                var replaceText = getValue.replace(arr[i], "*");
+            }
+
+            divText.innerHTML = replaceText;
+
+        }
+    </script>
+</head>
+
+<body>
+    <textarea name="" id="text" cols="30" rows="10"></textarea>
+    <button onclick="btnClick()">发布
+    </button>
+    <div id="box"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            // var Oli = document.getElementsByTagName("li");
+            // alert(Oli.length);
+
+            var oli = document.getElementById("ul1");
+            var oliChild = oli.getElementsByTagName("li");
+            // var ulDiv = oli.getElementById("box");
+            alert(ulDiv);
+            for (var i = 0; i < oliChild.length; i++) {
+                oliChild[i].style.backgroundColor = "red";
+            }
+            // alert(oliChild.length);
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="ul1">
+        <li class="li"></li>
+        <li class="li"></li>
+        <li class="li" name="li"></li>
+        <li class="li" name="li"></li>
+        <li class="li" name="li"></li>
+        <div id="box"></div>
+    </ul>
+    <input type="text" name="input">
+    <span class="span" name="span"></span>
+    <ol>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol>
+</body>
+
+</html>

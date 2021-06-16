@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var d = new Date();
+        // d.setFullYear(2019);
+        var year = d.getFullYear();
+        var month = d.getMonth() + 1;
+        var date = d.getDate();
+        var week = d.getDay();
+        week = numOfChinese(week);
+
+        var hour = doubleNum(d.getHours());
+        var minute = doubleNum(d.getMinutes());
+        var seconds = doubleNum(d.getSeconds());
+
+        var str = year + "年" + month + "月" + date + "日" + " 星期" + week + hour + ":" + minute + ":" + seconds;
+        document.write(str)
+
+        function numOfChinese(num) {
+            var arr = ["日", "一", "二", "三", "四", "五", "六"];
+            return arr[num];
+        }
+
+        function doubleNum(num) {
+            if (num <= 10) {
+                return "0" + num;
+            } else {
+                return num;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

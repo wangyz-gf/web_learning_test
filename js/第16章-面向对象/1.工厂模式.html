@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function createPerson(name, sex) {
+            // var obj = new Object();
+
+
+            this.name = name;
+            this.sex = sex;
+            // this.showName = function () {
+            //     alert("我的名字是" + this.name);
+            // }
+            // this.showSex = function () {
+            //     alert("我的性别是" + this.sex);
+            // }
+
+            // return obj;
+
+        }
+        createPerson.prototype.showName = function () {
+            alert("我的名字是" + this.name);
+        }
+        createPerson.prototype.showSex = function () {
+            alert("我的性别是" + this.sex);
+        }
+        // var b1 = createPerson("小明", "男");
+        // alert(b1.name);
+
+        var obj2 = new createPerson();
+        obj2.name = "小明";
+        obj2.sex = "女"
+        obj2.showName();
+        obj2.showSex();
+        var obj3 = new createPerson();
+        // obj3.showName();
+
+        alert(obj2.showName == obj3.showName)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+<template>
+  <div>
+    <router-view></router-view>film组件
+  </div>
+</template>
+<style lang="scss" scoped>
+div {
+  color: red($color: #000000);
+}
+</style>

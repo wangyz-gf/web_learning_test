@@ -1,0 +1,47 @@
+$number: 100px;
+
+.box {
+    width: $number;
+    @number: 123px;
+}
+
+ul {
+    list-style: none;
+
+    li {
+        display: inline-block;
+    }
+
+    p {
+
+        // font-siz     : 16px;
+        font: {
+            size: 16px;
+            weight: bold;
+
+        }
+    }
+}
+
+@import "./2-1reset.scss";
+
+@mixin important-text ($cn) {
+    // margin: 12px;
+    margin: $cn
+}
+
+.box {
+    @include important-text($number);
+}
+
+.line {
+    display: inline;
+}
+
+.box7 {
+    @extend .line
+}
+
+.box8 {
+    margin: round($number: 3.5px);
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*         var str = " when i was young , i love a girl in neighbor class";
+        var start = str.indexOf("young");
+        var end = str.indexOf("girl") + "girl".length;
+        var char = str.substring(start, end);
+        document.write(char); */
+
+
+
+
+
+
+        // function char(str) {
+        //     var spl = str.split("");
+        //     for (var i = 1; i < spl.length; i++) {
+        //         if (spl[i] >= "A" && spl[i] <= "Z") {
+        //             spl[i] = spl[i].toLocaleLowerCase();
+        //             spl.splice(i, 0, " ");
+        //         }
+        //     }
+        //     return spl.join("");
+        // }
+        // document.write(char("HelloMyWorld"));
+
+
+        function char(str) {
+            var spl = str.split("");
+            for (var i = 1; i < spl.length; i++) {
+                if (spl[i] >= "A" && spl[i] <= "Z") {
+                    spl[i] = spl[i].toLocaleLowerCase();
+                    spl.splice(i, 0, " ");
+
+                }
+            }
+            return spl.join("");
+        }
+        document.write(char("HelloMyWorld"));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

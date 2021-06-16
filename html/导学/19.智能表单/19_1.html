@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>智能表单</title>
+		<style type="text/css">
+			*{
+				padding: 0;margin: 0;
+			}
+			form{
+				width: 400px;
+				background-color: #93A626;
+				margin: 20px auto;
+				padding: 0 15px;
+				color: #364411;
+				border-radius: 5px;
+			}
+			.step{
+				font-size: 14px;
+				font-weight: bold;
+				margin: 10px 0;
+			}
+			.form-line{
+				border-radius: 5px;
+				border-color: #f0f5df;
+				border-width: 1px;
+				border-style: solid;
+				margin: 2px 0;
+				background-color: #cede95;
+				font-size: 12px;
+				padding-left: 10px;
+			}
+			.form-line span{
+				display: inline-block;
+				width: 110px;
+			}
+			.form-line input{
+				background-color: white;
+				border: none;
+				height: 20px;
+				border-radius: 3px;
+				width: 180px;
+				margin: 1.5px;
+				/* outline: none; */
+			}
+			.form-line input[type=radio]{
+				width: 30px;
+				height: 12px;
+				display: inline-block;
+			}
+			.form-line textarea{
+				width: 180px;
+				height: 70px;
+				vertical-align: top;
+				border: none;
+				border-radius: 3px;
+				margin: 3px 0;
+				resize: none;
+				/* resize: horizontal; */
+				/* resize: vertical; */
+				/* outline: none; */
+			}
+/* 			#submit{
+				width: 400px;
+				margin: auto;
+				overflow: auto
+			} */
+			.submit{
+				text-align: center;
+			}
+			.submit-btn{
+				border: none;
+				padding: 5px 0;
+				color: white;
+				background-color: #30380D;
+				border-radius: 20px;
+				width: 100px;
+				margin: 10px auto;
+				display:inline-block;
+				cursor: pointer;
+				/* cursor: crosshair; */
+				/* cursor: move; */
+			}
+
+		</style>
+	</head>
+	<body>
+		<form action="">
+			<section>
+				<p class="step">step:Details</p>
+				<p class="form-line">
+					<span>Name</span>
+					<input type="text" placeholder="first and last name" />
+				</p>
+				<p class="form-line">
+						<span>Email</span>
+						<input type="email" placeholder="example@domain.com" />
+				</p>
+				<p class="form-line">
+						<span>Phone</span>
+						<input type="text" placeholder="" />
+				</p>
+				<p class="form-line">
+						<span>facebook page</span>
+						<input type="url" />
+				</p>
+			</section>
+			<section>
+				<p class="step">step:deliver address</p>
+				<p class="form-line">
+					<span>address</span>
+					<textarea placeholder=""></textarea>
+				</p>
+				<p class="form-line">
+					<span>post code</span>
+					<input placeholder=""></input>
+				</p>
+			</section>
+			<section>
+				<p class="step">step:card details</p>
+				<p class="form-line">
+					<span>card type</span>
+					<input type="radio" name="cardType" id="" value="debit" />debit
+					<input type="radio" name="cardType" id="" value="credit" />credit
+					<input type="radio" name="cardType" id="" value="VISA" />VISA
+				</p>
+				<p class="form-line">
+					<span>card number</span>
+					<input type="number" name="" id="" value="" />
+				</p>
+				<p class="form-line">
+					<span>card pwd</span>
+					<input type="password" placeholder="this is nor required"/>
+				</p>
+				<p class="form-line">
+					<span>name on card</span>
+					<input type="text" name="" id="" value="" />
+				</p>
+			</section>
+			<p class="submit">
+				<input type="submit" class="submit-btn"  value="submit" />
+			</p>
+		</form>
+	</body>
+</html>

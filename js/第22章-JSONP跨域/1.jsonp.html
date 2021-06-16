@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementById("btn");
+
+            btn.onclick = function () {
+                var oScript = document.createElement("script");
+
+                oScript.src = "./jsonp.js";
+                document.body.appendChild(oScript);
+            }
+        }
+
+        function showWord(data) {
+            alert("下载的数据 :" + data);
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">下载数据 </button>
+</body>
+
+</html>

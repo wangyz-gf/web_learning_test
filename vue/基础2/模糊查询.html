@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <input type="text" v-model='dataCheck' value='datalist'>
+        <ul v-for="data in dataCheckFun">
+            <li>{{data}}</li>
+        </ul>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#box",
+        data: {
+
+            dataCheck: [],
+            datalist: ['aaa', 'bb', 'ccc', 'acb', 'abc']
+        },
+        methods: {},
+        computed: {
+            dataCheckFun() {
+                return this.datalist.filter(item => item.indexOf(this.dataCheck) > -1)
+            }
+        }
+
+    })
+</script>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            background-color: blue;
+            border: 1px black solid;
+            margin: 20px auto;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var div = document.getElementById("box");
+            div.id = "box1";
+            div.style.backgroundColor = "blue";
+            // alert(div);
+            div.style.height = "400px";
+            // alert(height);
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box" style="height: 200px;width: 200px; background-color: red;"></div>
+</body>
+
+</html>

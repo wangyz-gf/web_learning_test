@@ -1,0 +1,68 @@
+1.css架构
+文件夹
+base：一些初始的通用css,如重置默认样式，动画，工具，打印等。
+components:  于构建页面的所有组件，如按钮，表单，表格，弹窗等。
+layout	用于布局页面的不同部分，如页眉，页脚，弹性布局，网格布局等。
+pages	放置页面之间不同的样式，如首页特殊样式，列表页特殊样式等。
+themes	应用不同的主题样式时，如管理员，买家，卖家等。
+abstracts	放置一些如：变量，函数，响应式等辅助开发的部分。
+vendors	放置一些第三方独立的CSS文件，如bootstrap，iconfont等。
+
+
+2.css自定义变量
+在html文档中，通过<style></style>引入变量。（”--“+”名称“表示一个变量）
+        :root {
+            --color: red;
+            --number: 100px;
+            /* --size: 50; */
+
+        }
+
+        div {
+            background-color: var(--color);
+            height: var(--number);
+            width: calc(var(--size) *1px);
+            font-size: var(--size, 100px);
+        }
+
+3.环绕效果
+ shape-outside：none(默认值)、margin-box、padding-box、content-box、polygen(图形左边)（当是多边形的时候用）
+clip-path:(可做多边形) polygen(图形坐标)
+shape-margin：文字与图形之间的间距
+
+4.滚动条（一般加给html标签，直接在html后面加就行了。例如html::-webkit-scrollbar）	
+::-webkit-scrollbar:定义滚动条的宽度
+::-webkit-scrollbar-thumb：定义滚动条的样式，圆角、颜色、渐变等
+::-webkit-scrollbar-track：定义滚动条的容器，背景、阴影等
+
+5.滚动捕捉
+scroll-snap-type：x 或y mandatory(表示强制)
+x/y:表示x/y方向，设置在容器上。
+同时子项也需要添加一个属性
+scroll-snap-align：start center end
+
+例子：
+        #main {
+            height: 100px;
+            width: 500px;
+            margin: 100px;
+            border: 1px black solid;
+            overflow: auto;
+            scroll-snap-type: x mandatory;
+        }
+
+        #main .list {
+            width: 4000px;
+        }
+
+        #main .list li {
+            height: 100px;
+            width: 400px;
+            background-color: red;
+            float: left;
+            margin-right: 20px;
+            scroll-snap-align: start;
+        }
+
+
+	

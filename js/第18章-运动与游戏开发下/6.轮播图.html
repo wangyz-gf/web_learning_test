@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            position: relative;
+            border: 1px solid black;
+            height: 220px;
+            width: 880px;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+
+        #box ul {
+            list-style-type: none;
+            position: absolute;
+
+        }
+
+        #box ul li {
+            height: 200px;
+            width: 200px;
+            margin: 10px;
+            background-color: grey;
+            float: left;
+        }
+
+        #box ul li img {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <script src="./img.js"></script>
+    <script>
+        window.onload = function () {
+            var oUl = document.getElementById("oUl");
+            var oLi = document.getElementsByTagName("li");
+
+            for (var i = 0; i < oLi.length; i++) {
+                var oImg = document.createElement("img");
+                oImg.src = "./img/" + (i + 1) + ".jpg";
+                oLi[i].appendChild(oImg);
+            }
+            oUl.innerHTML += oUl.innerHTML;
+            console.log(oUl.offsetWidth)
+            oUl.style.width = oUl.offsetWidth * 2 + "px";
+
+
+            setInterval(() => {
+                startMove(oUl, {
+                    left: oUl.offsetLeft - 220
+                }, function () {
+                    if (oUl.offsetLeft <= -(oUl.offsetWidth) / 2) {
+                        oUl.style.left = 0;
+                    }
+                })
+            }, 1000);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="oUl">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+</html>

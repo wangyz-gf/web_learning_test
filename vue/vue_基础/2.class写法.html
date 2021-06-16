@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            background-color: red;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .font {
+            color: blue;
+        }
+    </style>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <button @click="isChange()">改变颜色</button>
+        <!-- <div :class="isActive? 'red':'green'">颜色变化</div> -->
+
+        <!-- 数组语法 -->
+        <!-- <div :class='colorFont'>文本颜色</div> -->
+
+
+        <!-- 对象语法 -->
+        <div :class='classArr'>文本颜色</div>
+
+
+        <!-- style用法 -->
+        <!-- 数组写法 -->
+        <div :style='styleArr'>样式</div>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#box',
+        data: {
+            isActive: true,
+            red: true,
+            font: true,
+            colorFont: ['red', 'font'],
+            classArr: {
+                'red': false,
+                'font': true
+            },
+            styleArr: [{
+                backgroundColor: 'red'
+            }],
+        },
+        methods: {
+            isChange() {
+                this.isActive = !this.isActive;
+            }
+        }
+    })
+</script>
+
+</html>

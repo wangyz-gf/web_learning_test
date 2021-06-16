@@ -1,0 +1,62 @@
+<template>
+  <div class="cinema" :style="mystyle">
+    <ul>
+      <li v-for="data in datalist" :key="data.cinemaId">
+        <p>{{data.name}}</p>
+        <p style="font-size:12px">{{data.address}}</p>
+      </li>
+    </ul>
+  </div>
+</template>
+<script>
+import axios from "axios";
+import BetterScroll from "better-scroll";
+export default {
+  data() {
+    return {
+      datalist: [],
+      mystyle: {
+        height: "0px",
+      },
+    };
+  },
+  mounted() {
+    //加载数据
+    var id = localStorage.getItem("cityId");
+    axios({
+      url: `https://m.maizuo.com/gateway?cityId=${id}&ticketFlag=1&k=951706`,
+      headers: {
+        "X-Client-Info":
+          '{"a":"3000","ch":"1002","v":"5.0.4","e":"1596900605147450522238977"}',
+        "X-Host": "mall.film-ticket.cinema.list",
+      },
+    }).then((res) => {
+      console.log(res.data);
+      this.datalist = res.data.data.cinemas;
+    });
+
+    // console.log(document.documentElement.clientHeight);
+    this.mystyle.height = document.documentElement.clientHeight - 50 + "px";
+    this.$nextTick(() => {
+      /* eslint-disable no-new */
+      new BetterScroll(".cinema", {
+        scrollbar: {
+          fade: true,
+          interactive: false, // 1.8.0 新增
+        },
+      });
+    });
+  },
+};
+</script>
+<style lang="scss" scoped>
+ul {
+  li {
+    height: 50px;
+  }
+}
+.cinema {
+  overflow: hidden;
+  position: relative;
+}
+</style>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mask {
+            height: 300px;
+            width: 300px;
+            background: url("./img/girl.jpg") no-repeat center center;
+            -webkit-mask: url("./img/car.png") no-repeat center center/150px 150px, url("./img/love.png") no-repeat left center/100px 100px, url("./img/love.png") no-repeat right center/100px 100px;
+            transition: .5s;
+        }
+
+        .mask:hover {
+            -webkit-mask: url("./img/car.png") no-repeat center center /200px 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mask"></div>
+</body>
+
+</html>

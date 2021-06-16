@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            margin: 20px;
+            position: absolute;
+        }
+    </style>
+    <script src="/jq/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#box").on("mousedown", function (ev) {
+                var offsetX = ev.clientX - $("#box").offset().left;
+                var offsetY = ev.clientY - $("#box").offset().top;
+
+                var _this = this;
+                $(document).on("mousemove", function (ev) {
+                    var left = ev.clientX - offsetX;
+                    var top = ev.clientY - offsetY;
+                    $("#box").css({
+                        left: left,
+                        top: top
+                    })
+                })
+            })
+            $(document).on("mouseup", function () {
+                $(document).off("mousemove");
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>

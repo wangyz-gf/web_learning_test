@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>css优先级</title>
+		<link rel="stylesheet" type="text/css" href="base.css"/>
+		<style type="text/css">
+		/* div{color: red !important;} */
+		/* div{color: #0000FF;} */
+		div,p{
+			color: red;
+		}
+		div{color: #0000FF;}
+		</style>
+	</head>
+	<body>
+		<!-- <div style="color: green;">这是一个块</div> -->
+		<div>这是一个块</div>
+		<p>这是一个段落</p>
+	</body>
+</html>

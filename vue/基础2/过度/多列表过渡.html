@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+    <style>
+        .bounce-enter-active {
+            animation: bounce-in .5s;
+        }
+
+        .bounce-leave-active {
+            animation: bounce-in .5s reverse;
+        }
+
+        @keyframes bounce-in {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <input type="text" v-model='mytext'>
+        <button @click='addClick()'>add</button>
+
+        <transition-group tag="ul" name="bounce">
+            <li v-for="(data,index) in datalist" :key="data">
+                {{data}}--{{index}}
+                <button @click="delClick(index)">DEL</button>
+            </li>
+        </transition-group>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#box',
+        data: {
+            datalist: [],
+            mytext: ''
+        },
+        methods: {
+            addClick() {
+                this.datalist.push(this.mytext)
+            },
+            delClick(index) {
+                this.datalist.splice(index, 1)
+            }
+        }
+    })
+</script>
+
+</html>

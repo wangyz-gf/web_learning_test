@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <input type="checkbox" v-model='fruitArr' va    lue=苹果">苹果
+        <input type="checkbox" v-model='fruitArr' value="香蕉">香蕉
+        <input type="checkbox" v-model=' fruitArr' value="葡挞皮">葡挞皮
+        <p>{{fruitArr}}</p>
+        <br>
+        <input type="radio" v-model='hobby' value="画画">画画
+        <input type="radio" v-model='hobby' value="写字">写字
+        <input type="radio" v-model='hobby' value="玩游戏">玩游戏
+        <p>{{hobby}}</p>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: ' #box',
+        data: {
+            fruitArr: [],
+            hobby: ''
+        },
+        methods: {}
+    })
+</script>
+
+</html>

@@ -1,0 +1,39 @@
+1.弹性布局
+采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”
+    容器的属性（设置在容器上的）
+        flex-direction
+        flex-wrap
+        flex-flow
+        justify-content
+            flex-start | flex-end | center | space-between | space-around|space-evenly
+                space-evenly也就是视觉上，每个flex子项两侧的空白间距完全相同
+
+        align-items
+        align-content
+        
+   align-content可以看成和justify-content是相似且对立的属性，如果所有flex子项只有一行，则align-content属性是没有任何效果的     
+    项目的属性（设置在项目上）
+        order
+        flex-grow
+        flex-shrink
+        flex-basis
+        flex
+        align-self
+
+2.网格布局（grid）
+    容器属性
+        grid-template-columns：设置列数
+        grid-template-rows：设置行数
+        grid-template-area：划分网格区域
+            例如:grid-template-area:
+                "a1 a1 a1"
+                "a2 a2 a3"
+                "a2 a2 a3"
+            同时子项需要一个定于命名：
+                子元素需要加入grid-area:a1等的属性。
+        grid-column-gap:设置纵向间隔
+        grid-row-gap:设置横向间隔
+        justify-items:指定网格 元素的水平呈现方式。（在所属网格中）
+        align-items:指定了网格元素的垂直呈现方式（在所属网格中）
+        justify-content:指定网格元素的水平分布方式（针对整个网格）
+        align-content:指定网格元素的垂直分布方式（针对整个网格）

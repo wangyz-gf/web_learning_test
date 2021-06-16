@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 输入年、 月、 日， 计算某一天是该年的第几天（ 周）
+        var year = 2008;
+        var month = 2;
+        var day = 8;
+        var sum = 0;
+        switch (month) {
+            case 12:
+                sum += 31;
+            case 11:
+                sum += 30;
+            case 10:
+                sum += 31;
+            case 9:
+                sum += 30
+            case 8:
+                sum += 31;
+            case 7:
+                sum += 31;
+            case 6:
+                sum += 30
+            case 5:
+                sum += 31;
+            case 4:
+                sum += 30
+            case 3:
+                sum += 31;
+            case 2:
+                sum += 28;
+                if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+                    sum += 1;
+                    console.log("闰年");
+                }
+                case 1:
+                    sum += 31 + day;
+                    break;
+                default:
+                    alert("error ");
+                    break;
+        }
+        alert("该年的第" + sum + "天");
+        alert("该年的第" + Math.ceil(sum / 7) + "周");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

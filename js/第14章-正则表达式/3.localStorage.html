@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        if (!window.localStorage) {
+            alert("当前浏览器不支持");
+        } else {
+            localStorage.setItem("a", "1");
+            localStorage.b = "2";
+            localStorage["c"] = "3";
+        }
+        window.onload = function () {
+            var btn = document.getElementById("Btn");
+
+            btn.onclick = function () {
+                localStorage.removeItem("a")
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="Btn">删除</button>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            margin: 50px;
+            height: 150px;
+            width: 200px;
+            border: 1px black solid;
+            position: relative;
+            display: none;
+        }
+
+        #box span {
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        #box input {
+            font-style: 14px;
+            margin: 5px;
+
+        }
+
+        #box button {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        #sumBtn {
+            position: fixed;
+            top: 5px;
+            left: 3px;
+        }
+    </style>
+    <script src="/jq/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+
+            var top = $(window).scrollTop() + ($(window).height() - $("#box").outerHeight(true)) / 2;
+            var left = ($(window).width() - $("#box").outerWidth(true)) / 2;
+
+            $("#box").css({
+                top: top,
+                left: left
+            })
+
+            $(window).on("scroll resize", function () {
+                var top = $(window).scrollTop() + ($(window).height() - $("#box").outerHeight(true)) /
+                    2;
+
+                /*             console.log($(window).scrollTop())
+                            console.log(top); */
+                var left = ($(window).width() - $("#box").outerWidth(true)) / 2;
+                $("#box").css({
+                    top: top,
+                    left: left
+                })
+            })
+
+            $("#sumBtn").on("click", function () {
+                $("#box").css("display", "block");
+            })
+
+            $("#close").on("click", function () {
+                $("#box").css("display", "none");
+            })
+
+        })
+    </script>
+</head>
+
+<body style="height: 3000px;">
+    <button id="sumBtn">发布</button>
+    <div id="box">
+        <span>用户名</span>
+        <input type="text" placeholder="请输入名字">
+        <span>密码</span>
+        <input type="text" placeholder="请输入密码">
+        <button id="close">X</button>
+    </div>
+</body>
+
+</html>

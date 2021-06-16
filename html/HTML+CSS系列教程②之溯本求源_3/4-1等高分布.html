@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            border: 1px black solid;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .left {
+            float: left;
+            width: 100px;
+            margin-bottom: -999em;
+            padding-bottom: 999em;
+            background-color: red;
+        }
+
+        .right {
+            float: right;
+            width: 100px;
+            margin-bottom: -999em;
+            padding-bottom: 999em;
+            background-color: blue;
+        }
+
+        .left p {
+            height: 10px;
+            width: 100px;
+        }
+
+        .box {
+            width: 100px;
+            border-top: 1px green solid;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="left">
+            <div class="box"></div>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+
+        </div>
+        <div class="right"></div>
+    </div>
+
+</body>
+
+</html>

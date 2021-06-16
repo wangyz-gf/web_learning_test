@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #slideBar {
+            height: 20px;
+            width: 500px;
+            border: 1px solid black;
+            position: relative;
+            margin: 100px auto;
+        }
+
+        #slideBg {
+            height: 20px;
+            background-color: orange;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+        }
+
+        #slideBlock {
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            background-color: blue;
+            left: 0;
+            /* top: 0; */
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var slideBar = document.getElementById("slideBar");
+            var slideBg = document.getElementById("slideBg");
+            var slideBlock = document.getElementById("slideBlock");
+
+            //    保存上次的记录l
+            /*             if (!window.localStorage) {
+                            alert("该浏览器不兼容");
+                        } else {
+                            var l = localStorage.getItem("slideBg") ? localStorage.getItem("slideBg") : 0;
+                            slideBlock.style.left = l + "px"
+                            slideBg.style.width = l + "px";
+                        } */
+
+
+            slideBlock.onmousedown = function (ev) {
+                console.log("按下滑块")
+                var e = ev || window.event;
+                var offsetX = e.clientX - slideBlock.offsetLeft;
+                console.log(e.clientX);
+
+
+                document.onmousemove = function (ev) {
+                    var e = ev || window.event;
+
+                    var l = e.clientX - offsetX;
+                    console.log(e.clientX);
+                    if (l <= 0) {
+                        l = 0;
+                    } else if (l >= 480) {
+                        l = 480;
+                    }
+                    slideBlock.style.left = l + "px";
+                    slideBg.style.width = l + "px";
+
+                    // 保存到本地
+                    /*  if (!window.localStorage) {
+                         alert("该浏览器不兼容");
+                     } else {
+                         localStorage.setItem("slideBg", l)
+                     } */
+                }
+
+            }
+
+            // 抬起鼠标不能移动
+            document.onmouseup = function () {
+                document.onmousemove = null;
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="slideBar">
+        <div id="slideBg"></div>
+        <div id="slideBlock"></div>
+    </div>
+</body>
+
+</html>

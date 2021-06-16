@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./demo.js"></script>
+    <style>
+        #box1 {
+            height: 300px;
+            width: 300px;
+            border: 1px black solid;
+            background-color: #C2C2C2;
+            text-align: center;
+            margin: 100px auto;
+            padding: 50px;
+        }
+
+        #input {
+            height: 40px;
+            width: 300px;
+            font-size: 20px;
+        }
+
+        #show {
+            width: 300px;
+            height: 200px;
+            background-color: #84D984;
+            margin-top: 50px;
+            padding-top: 10px;
+        }
+    </style>
+    <script>
+        var arr = word.split("\n");
+        var map = new Map();
+
+        for (let i = 0; i < arr.length - 1; i += 2) {
+            map.set(arr[i].substring(1), arr[i + 1].substring(6));
+        }
+
+        window.onload = function () {
+            var oDiv = document.getElementById("box1");
+            var oInput = document.getElementById("input");
+            var oShow = document.getElementById("show");
+
+            oInput.onkeyup = function () {
+                var value = map.get(this.value);
+                if (value) {
+                    oShow.innerHTML = value;
+                } else {
+                    oShow.innerHTML = "暂无此词";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box1">
+        <input type="text" id="input" placeholder="输入英文单词">
+        <div id="show"></div>
+    </div>
+</body>
+
+</html>

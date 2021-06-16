@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <weixinauthor></weixinauthor>
+        <weixinxiaoxi></weixinxiaoxi>
+    </div>
+</body>
+<script>
+    // 创建事件总线
+    var bus = new Vue();
+    // 组件1
+    Vue.component("weixinauthor", {
+        template: `
+        <div>
+        <input type="text" ref="mytext"></input>
+        <button @click="handleClick()" >发布</button>
+        </div>
+        `,
+        methods: {
+            handleClick() {
+                bus.$emit('weixin', this.$refs.mytext.value)
+            }
+        }
+    })
+    // 组件2
+    Vue.component("weixinxiaoxi", {
+        template: `
+        <div style='backgroundColor:bule'>这是收到的信息</div>
+        `,
+        mounted() {
+            bus.$on("weixin", (data) => {
+                console.log("收到信息", data)
+            })
+        }
+    });
+
+    var vm = new Vue({
+        el: "#box"
+    })
+</script>
+
+</html>

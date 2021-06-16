@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            background: red;
+            margin: 50px;
+            opacity: 0.3;
+        }
+
+        div:last-child {
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementsByTagName("div");
+
+            oDiv[0].onmouseover = function () {
+                startMove(this, "width", 200, function () {
+                    startMove(this, "height", 200, function () {
+                        console.log("透明度")
+                        startMove(this, "opacity", 100);
+
+                    })
+                });
+            }
+            oDiv[0].onmouseout = function () {
+                startMove(this, "width", 100, function () {
+                    startMove(this, "height", 100, function () {
+                        startMove(this, "opacity", 30);
+                    });
+                })
+
+            }
+        }
+
+        function startMove(node, attr, iTarget, complete) {
+            clearInterval(node.timer);
+            node.timer = setInterval(function () {
+                var iCur = getStyle(node, attr);
+                if (attr == "opacity") {
+                    iCur = parseInt(parseFloat(iCur) * 100);
+                } else {
+                    iCur = parseInt(iCur);
+                }
+
+                var speed = (iTarget - iCur) / 8;
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+                if (iCur == iTarget) {
+                    clearInterval(node.timer);
+                    if (complete) {
+                        complete.call(node);
+                        // complete.call(node);
+                    }
+                } else {
+                    if (attr == "opacity") {
+                        iCur += speed;
+                        node.style[attr] = iCur / 100;
+                        node.style.filter = `alpha(opacity = ${iCur})`;
+                    } else {
+                        node.style[attr] = iCur + speed + "px";
+                    }
+                }
+            }, 30)
+        }
+
+        function getStyle(node, cssStyle) {
+            return node.currentStyle ? node.currentStyle[cssStyle] : getComputedStyle(node)[cssStyle]
+        }
+    </script>
+</head>
+
+<body>
+    <div></div>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+{
+  "id": "1919656",
+  "name": "la'gou",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "个人学习使用",
+  "glyphs": [
+    {
+      "icon_id": "447363",
+      "name": "首页",
+      "font_class": "iconfonthome0",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "637795",
+      "name": "搜素",
+      "font_class": "sousu",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "13625324",
+      "name": "我的",
+      "font_class": "wode",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    }
+  ]
+}

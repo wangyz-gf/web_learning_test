@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style-type: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #oDiv {
+            position: absolute;
+            display: none;
+        }
+
+        #oDiv li {
+            height: 20px;
+            width: 100px;
+            background-color: gray;
+            color: white;
+            line-height: 20px;
+            text-indent: 5px;
+            border: 1px black solid;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById("oDiv");
+            document.oncontextmenu = function () {
+                return false;
+            }
+
+            document.onmousedown = function (ev) {
+                var e = ev || window.event;
+                if (e.button == 2) {
+                    oDiv.style.display = "block";
+                    oDiv.style.left = e.clientX + "px";
+                    oDiv.style.top = e.clientY + "px";
+                } else {
+                    oDiv.style.display = "none";
+
+                }
+
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+<div id="oDiv">
+    <li>12</li>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+</div>
+
+</html>

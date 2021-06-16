@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <navbar myname='list' :myshow='true'></navbar>
+        <navbar myname='host' :myshow='false'></navbar>
+    </div>
+</body>
+<script>
+    Vue.component('navbar', {
+        template: `
+        <div>
+        <button>返回</button>
+        navbar--{{myname}}
+        <button v-show="myshow">首页</button>
+        </div>
+        `,
+        props: {
+            myname: String,
+            myshow: Boolean,
+        }
+
+    });
+ 
+    var vm = new Vue({
+        el: "#box",
+        data: {
+
+        },
+        methods: {}
+    })
+</script>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+</head>
+<div id="box">
+    <ul @click.self='clickUl'>
+        <li @click.stop='clickLi'>111</li>
+        <li>222</li>
+        <a href="http://tabao.com" @click.prevent='clickA'>百度</a>
+
+        <!-- 按键修饰符 -->
+        <input type="text" @keyup.enter='keyup'>
+    </ul>
+</div>
+
+<body>
+
+</body>
+<script>
+    var vm = new Vue({
+        el: '#box',
+        data: {
+
+        },
+        methods: {
+            clickUl: function () {
+                console.log("clickul")
+            },
+            clickLi: function () {
+                console.log("clickLi")
+            },
+            clickA: function () {
+                console.log("clickA")
+            },
+            keyup: function () {
+                console.log("keyup")
+            }
+        }
+    })
+</script>
+
+</html>

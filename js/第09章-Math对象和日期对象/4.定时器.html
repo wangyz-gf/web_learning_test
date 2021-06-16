@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/base.js"></script>
+    <style>
+        div {
+            height: 300px;
+            width: 600px;
+            border: 1px black solid;
+            margin: 30px auto;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 300px;
+        }
+    </style>
+    <script>
+        setInterval(function () {
+            var node = document.getElementById("box");
+            var date = showTime();
+            node.innerHTML = date;
+        }, 1000);
+    </script>
+</head>
+
+<body>
+    <div id="box">当前时间</div>
+</body>
+
+</html>

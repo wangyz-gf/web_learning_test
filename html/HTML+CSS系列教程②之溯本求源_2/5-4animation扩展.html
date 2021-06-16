@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{height: 100px;width: 100px;background: red; margin: 5px;}
+        .box1{animation: move 2s 2s;}
+        .box2{animation: move 2s 2s;animation-fill-mode:backwards ;}
+        .box3{animation: move 2s 2s;animation-fill-mode: forwards;}
+        .box4{animation: move 2s 2s;animation-fill-mode: both;}
+        .box5{animation: move 2s 2s infinite;animation-direction: alternate;}
+        .box6{animation: move 2s infinite;animation-direction: reverse;}
+        .box7{animation: move 2s;animation-direction: normal;}
+
+        @keyframes move{
+            0%{transform: translate(0,0);background-color: blue;}
+            100%{transform: translate(400px,0);}
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+    <div class="box6"></div>
+    <div class="box7"></div>
+</body>
+</html>

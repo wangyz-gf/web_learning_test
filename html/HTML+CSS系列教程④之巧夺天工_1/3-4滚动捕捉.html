@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #main {
+            height: 100px;
+            width: 500px;
+            margin: 100px;
+            border: 1px black solid;
+            overflow: auto;
+            scroll-snap-type: x mandatory;
+        }
+
+        #main .list {
+            width: 4000px;
+        }
+
+        #main .list li {
+            height: 100px;
+            width: 400px;
+            background-color: red;
+            float: left;
+            margin-right: 20px;
+            scroll-snap-align: start;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <ul class="list">
+            <li>12313</li>
+            <li>12313</li>
+            <li>12313</li>
+            <li>12313</li>
+        </ul>
+    </div>
+</body>
+
+</html>

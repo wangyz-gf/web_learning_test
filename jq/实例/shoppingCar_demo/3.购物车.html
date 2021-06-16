@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css.css" />
+    <script src="/jq/jquery-1.10.1.min.js"></script>
+    <script src='./jquery.cookie.js'></script>
+    <script src="./parabola.js"></script>
+    <script>
+        $(function () {
+
+            sc_num();
+            sc_msg();
+            // 通过ajax加载数据
+            $.ajax({
+                url: "./data.json",
+                type: "get",
+                success: function (res) {
+                    console.log(res);
+                    for (var i = 0; i < res.length; i++) {
+                        var node = $(`
+                        <li class="good_item">
+                            <div class="good_pic">
+                                <img src="${res[i].img}" alt="" />
+                            </div>
+                            <div class="good_title">
+                                <p>【京东超市】奥利奥软点小草莓</p>
+                            </div>
+                            <div class="sc">
+                                <div id="${res[i].id}" class="sc_btn">加入购物车</div>
+                            </div>
+                            
+                        </li>
+                        `);
+                        node.appendTo(".goods_box ul")
+
+                    }
+                },
+                error: function (msg) {
+                    alert(msg);
+                },
+            });
+
+
+
+            // 用cookie存储数据，点击加入购物车进行存储,通过事件委托。
+
+            $('.goods_box ul').on("click", '.sc_btn', function () {
+                ballMove(this);
+                // console.log("点击")
+                var id = this.id;
+                var first = $.cookie('good') == null ? true : false;
+                //判断是不是第一次添加
+                if (first) {
+
+                    var arr = [{
+                        id: id,
+                        num: 1
+                    }]
+                    $.cookie('good', JSON.stringify(arr), {
+                        expires: 7
+                    })
+                    // console.log($.cookie("good"));
+                }
+                // 判断之前是不是添加过
+                else {
+                    // console.log($.cookie("good"))
+                    var cookieStr = $.cookie("good");
+                    var cookieArr = JSON.parse(cookieStr);
+                    // console.log(cookieArr)
+                    // 假设没有添加过该商品
+                    var same = false;
+                    for (var i = 0; i < cookieArr.length; i++) {
+                        if (id == cookieArr[i].id) {
+                            same = true;
+                            cookieArr[i].num += 1;
+                            break;
+                        }
+                    }
+                    if (!same) {
+
+                        cookieArr.push({
+                            id: id,
+                            num: 1
+                        })
+                    }
+
+                    console.log(cookieArr)
+
+                    $.cookie('good', JSON.stringify(cookieArr), {
+                        expires: 7
+                    })
+                    console.log($.cookie("good"))
+                }
+                sc_num();
+                sc_msg();
+
+
+            })
+
+
+
+            // 计算商品的总量
+            function sc_num() {
+                var cookieStr = $.cookie('good');
+                if (cookieStr) {
+                    // 解析
+                    var cookieArr = JSON.parse(cookieStr);
+                    var sum = 0;
+                    for (var i = 0; i < cookieArr.length; i++) {
+                        sum += cookieArr[i].num;
+                    }
+                    $('.sc_right .sc_num').html(sum)
+                } else {
+                    $('.sc_right .sc_num').html(0);
+                }
+            }
+
+
+            // 加载购物车的信息
+            function sc_msg() {
+                // 清空购物车的数据
+                $(".sc_right ul").empty();
+
+                $.ajax({
+                    url: "./data.json",
+                    success: function (arr) {
+                        var cookieStr = $.cookie("good");
+                        var newArr = [];
+                        if (cookieStr) {
+                            var cookieArr = JSON.parse(cookieStr);
+                            for (var i = 0; i < arr.length; i++) {
+                                for (var j = 0; j < cookieArr.length; j++) {
+                                    if (arr[i].id == cookieArr[j].id) {
+                                        arr[i].num = cookieArr[j].num;
+                                        newArr.push(arr[i]);
+                                    }
+                                }
+                            }
+                            // console.log(newArr.length)
+                            for (var i = 0; i < newArr.length; i++) {
+                                var node = $(
+                                    `
+                                <li id="${newArr[i].id}">
+                                    <div class='sc_goodsPic'>
+                                        <img src="${newArr[i].img}" alt="">
+                                    </div>
+                                    <div class="sc_goodsTitle">
+                                        <p>这是商品曲奇饼</p>
+                                    </div>
+                                    <div class="sc_goodsBtn">购买</div>
+                                    <div class="sc_deleteBtn">删除</div>
+                                    <div class="sc_goodsNum">
+                                        购买数量：${newArr[i].num}
+                                    </div>
+                                    <button>-<button>
+                                    <button>+<button>
+                                    
+                                </li>
+                                `
+                                )
+                                node.appendTo($(".sc_right ul"))
+                            }
+                        }
+                    }
+                })
+            }
+
+            //  给购物车图标添加移出，移入
+            $(".sc_right").mouseenter(function () {
+                // console.log('移入')
+                $(this).stop(true).animate({
+                    right: 0
+                }, 500);
+            })
+
+            $(".sc_right").mouseleave(function () {
+                // console.log("移开")
+                $(this).stop(true).animate({
+                    right: -270,
+                }, 500)
+            })
+
+
+            // 抛物线运动的函数
+            function ballMove(oBtn) {
+                $("#ball").css({
+                    display: "block",
+                    left: $(oBtn).offset().left,
+                    top: $(oBtn).offset().top
+                })
+
+                // 计算抛物线运动要进行的相对位置
+                var X = $(".sc_right .sc_pic").offset().left - $("#ball").offset().left;
+                var Y = $(".sc_right .sc_pic").offset().top - $("#ball").offset().top;
+
+
+                var bool = new Parabola({
+                    el: "#ball",
+                    offset: [X, Y],
+                    duration: 600,
+                    curvature: 0.0005,
+                    callback: function () {
+                        $("#ball").hide();
+                    }
+                })
+                bool.start();
+            }
+
+            // 清空购物车
+            $("#removeSc").click(function () {
+                $.cookie('good', null);
+                sc_num();
+                sc_msg();
+            })
+
+            // 删除商品,通过事件委托
+            $(".sc_right ul").on("click", ".sc_deleteBtn", function () {
+                console.log("点击删除")
+                var id = $(this).closest('li').remove().attr("id");
+                var cookieStr = $.cookie("good");
+                var cookieArr = JSON.parse(cookieStr);
+
+                for (var i = 0; i < cookieArr.length; i++) {
+                    if (id == cookieArr[i].id) {
+                        cookieArr.splice(i, 1);
+                        break;
+                    }
+                }
+                if (!cookieArr.length) {
+                    $.cookie("good", null);
+                } else {
+                    $.cookie('good', JSON.stringify(cookieArr), {
+                        expires: 7
+                    })
+                }
+
+                sc_num();
+                sc_msg();
+
+            })
+
+
+
+            // 增加或减少商品
+            $(".sc_right ul").on('click', 'button', function () {
+                var id = $(this).closest("li").attr("id");
+                var cookieStr = $.cookie("good");
+                var cookieArr = JSON.parse(cookieStr);
+
+                for (var i = 0; i < cookieArr.length; i++) {
+                    if (id == cookieArr[i].id) {
+                        // 判断是增加还是减少
+                        if (this.innerHTML == "+") {
+                            cookieArr[i].num++;
+                            console.log("增加数量")
+                        } else {
+                            if (cookieArr[i].num == 1) {
+                                alert("数量已为1，不能再减了")
+                            } else {
+                                cookieArr[i].num--;
+                                console.log("减少数量");
+                            }
+                        }
+
+                        $(this).prevAll(".sc_goodsNum").html(`商品数量：${cookieArr[i].num}`);
+                        $.cookie("good", JSON.stringify(cookieArr), {
+                            expires: 7
+                        })
+                        break;
+                    }
+                }
+                sc_num();
+            })
+
+
+            // 点击加入购物车的时候，需要重新加载一次
+            sc_num();
+            sc_msg();
+        });
+    </script>
+</head>
+
+<body>
+    <button id="removeSc">清空购物车</button>
+    <div class="goods_box">
+        <ul>
+            <!--             <li class="good_item">
+                <div class="good_pic">
+                    <img src="${arr[id].img}" alt="" />
+                </div>
+                <div class="good_title">
+                    <p>【京东超市】奥利奥软点小草莓</p>
+                </div>
+                <div class="sc">
+                    <div id="${res[i].id}" class="sc_btn">加入购物车</div>
+                </div>
+            </li> -->
+        </ul>
+    </div>
+    <div class="sc_right">
+        <div class="sc_pic">
+            <!-- 购物车内商品的数量 -->
+            <div class="sc_num">0</div>
+        </div>
+        <ul>
+            <!-- <li>
+                <div>
+                    <img src="" alt="">
+                </div>
+                <div>
+                    <p>这是商品曲奇饼</p>
+                </div>
+                <div>购买</div>
+                <div>
+                    购买数量：
+                </div>
+            </li> -->
+        </ul>
+    </div>
+    <div id="ball"></div>
+</body>
+
+</html>

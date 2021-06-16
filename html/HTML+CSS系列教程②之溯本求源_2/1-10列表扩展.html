@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=w, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .line{border-top: 50px red solid; border-left: 150px solid blue; position: relative;}
+        .line i{position:absolute;left: -50px;top: -50px;}
+        .line span{position:absolute; left: -120px;top: -30px;}
+        table{color: white;background-color: green ;}
+    </style>
+</head>
+<body>
+    <table border="6">
+        <caption>我的标题</caption>
+        <colgroup>
+            <col span="2" style="background-color: red;">
+            <col span="2" style="background-color: yellow;">
+        </colgroup>
+        <tr>
+            <th> 
+                <div class="line">
+                    <i>日期</i>
+                    <span>天气</span>
+                </div>
+            </th>
+            <th> 天气</th>
+            <th> 天气</th>
+        </tr>
+        <tr>
+          <td>100</td>
+          <td>200</td>
+          <td>300</td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>500</td>
+          <td>600</td>
+        </tr>
+        </table>
+</body>
+</html>

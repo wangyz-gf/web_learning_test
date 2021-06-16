@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul{list-style-type: none;}
+        img{display: block;}
+
+        .list{width: 250px;margin: 30px auto; overflow: hidden;}
+        .list li{height:97px; border: 1px #d0d6d9 dashed;}
+        .list li:last-child{border: 1px #d0d6d9 dashed;}
+        .list_photo{height: 77px;width: 112px; float: left;position:relative;margin: 10px 9px 0 5px;}
+        .list_photo .list_photo_box{position: absolute;top: 9px;left: 9px;width: 92px;height: 57px;transform: translate(0,-60px)  rotate(-90deg);transition: 1s;border: 1px white solid; transform-origin: 0 0;}
+        .list_photo .list_photo_text{position: absolute; bottom: 15px;text-align: center; font: 14px;width: 100%;  color: white;transform: translate(0,100px);transition: 1s;transform-origin: 0 0;}
+        .list .list_photo img{width: 100%;}
+        .list_text{float: left; font-size: 12px;line-height: 21px;width: 114px;margin-top: 10px;}
+
+        /* 变形 */
+        .list:hover .list_photo_box{transform: translate(0,0) rotate(0)}
+        .list:hover .list_photo_text{transform: translate(0,0);}
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li>
+            <div class="list_photo">
+                <img src="./resource/img2/list_photo.png" alt="">
+                <div class="list_photo_box" ></div>
+                <div class="list_photo_text">陌陌上市</div>
+            </div>
+            <div class="list_text">
+                <p>测试文字测试文字测试文字测试文字测试文字</p>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>

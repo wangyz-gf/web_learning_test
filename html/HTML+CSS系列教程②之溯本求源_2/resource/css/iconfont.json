@@ -1,0 +1,23 @@
+{
+  "id": "1912521",
+  "name": "iconfontTest",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "练习测试",
+  "glyphs": [
+    {
+      "icon_id": "15360922",
+      "name": "avatar09",
+      "font_class": "avatar09",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "15361450",
+      "name": "avatar08",
+      "font_class": "08",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    }
+  ]
+}

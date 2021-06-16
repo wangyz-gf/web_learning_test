@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            height: 900px;
+            width: 900px;
+            border: 1px black solid;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+        }
+
+        .parent div {
+            background-color: red;
+            color: white;
+            border: 1px black solid;
+        }
+
+        .box {
+            height: 900px;
+            width: 900px;
+            border: 1px black solid;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-areas:
+                "a1 a1 a1"
+                "a2 a2 a3"
+                "a2 a2 a3";
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+        }
+
+        .box div {
+            border: 1px black solid;
+            background-color: red;
+        }
+
+        .box div:first-child {
+            grid-area: a1;
+        }
+
+        .box div:nth-of-type(2) {
+            grid-area: a2;
+            /* margin-top: 10px;
+            margin-right: 10px; */
+        }
+
+        .box div:last-child {
+            grid-area: a3;
+        }
+
+        .mybox {
+            height: 900px;
+            width: 900px;
+            border: 1px black solid;
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            /* justify-items: center;
+            align-items: center; */
+            justify-content: center;
+            align-content: center;
+
+        }
+
+        .mybox div {
+            border: 1px black solid;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="parent">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </div> -->
+
+
+    <!-- 关于区域 -->
+    <!-- <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div> -->
+
+    <div class="mybox">
+        <div>x</div>
+        <div>x</div>
+        <div>x</div>
+        <div>x</div>
+        <div>x</div>
+        <div>x</div>
+        <div>x</div>
+        <div>x</div>
+        <div>x</div>
+    </div>
+</body>
+
+</html>

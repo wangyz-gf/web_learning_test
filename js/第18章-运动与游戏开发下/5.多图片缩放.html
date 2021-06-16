@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./img.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #oUl {
+            height: 366px;
+            width: 366px;
+            border: 1px black solid;
+            margin: 50px auto;
+        }
+
+        #oUl li {
+            list-style: none;
+            height: 100px;
+            width: 100px;
+            background-color: grey;
+            border: 1px solid black;
+            margin: 10px;
+            float: left;
+        }
+
+        #oUl li img {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oUl = document.getElementById('oUl');
+            var oLi = oUl.getElementsByTagName("li");
+            var icuIndex = 2;
+            for (var i = 0; i < oLi.length; i++) {
+                oLi[i].style.left = oLi[i].offsetLeft + 'px';
+                oLi[i].style.top = oLi[i].offsetTop + 'px';
+                var oImg = document.createElement("img");
+                oImg.src = "./img/" + (i + 1) + ".jpg";
+                oLi[i].appendChild(oImg);
+            }
+
+            for (var i = 0; i < oLi.length; i++) {
+                oLi[i].style.position = "absolute";
+                oLi[i].style.margin = "0px";
+
+                oLi[i].onmouseover = function () {
+                    this.style.zIndex = icuIndex++;
+                    startMove(this, {
+                        height: 200,
+                        width: 200,
+                        marginLeft: -50,
+                        marginTop: -50
+                    })
+                }
+                oLi[i].onmouseout = function () {
+                    startMove(this, {
+                        height: 100,
+                        width: 100,
+                        marginLeft: 0,
+                        marginTop: 0
+                    })
+                }
+
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="oUl">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            width: 300px;
+            height: 100%;
+            margin: 50px auto;
+        }
+
+        #input {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #E88C03;
+            /* color: black; */
+            padding: 5px;
+            /* box-sizing: border-box; */
+
+        }
+
+        #oUl {
+            list-style: none;
+            border: 1px solid #E88C03;
+            width: 310px;
+            /* width: 100%; */
+            display: none;
+        }
+
+        #oUl li {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        #oUl li a {
+            text-decoration: none;
+            color: black;
+            display: block;
+            /* padding: 5px; */
+        }
+
+        #oUl li a:hover {
+            background-color: #E88C03;
+        }
+    </style>
+    <script>
+        function show(data) {
+            var oUl = document.getElementById("oUl");
+            oUl.innerHTML = "";
+            var arr = data.s;
+            if (arr.length) {
+                oUl.style.display = "block";
+                for (var i = 0; i < arr.length; i++) {
+                    var oLi = document.createElement("li");
+                    var oA = document.createElement("a");
+
+                    oA.innerHTML = arr[i];
+                    oA.href = "https://www.baidu.com/s?wd=" + arr[i];
+                    oA.target = "_blank"
+                    oLi.appendChild(oA);
+                    oUl.appendChild(oLi);
+                }
+            } else {
+                oUl.style.display = "none";
+            }
+
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            var input = document.getElementById("input");
+            input.onkeyup = function () {
+                var value = this.value;
+                if (!value) {
+                    oUl.style.display = "none";
+
+                } else {
+                    var oScript = document.createElement("script");
+                    oScript.src = `http://suggestion.baidu.com/su?wd=${this.value}&cb=show`;
+                    // oScript.src = `http://suggestion.baidu.com/su?wd=${this.value}&cb=func`;
+                    document.body.appendChild(oScript);
+                }
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container" id="header">
+        <input type="text" id="input">
+        <ul id="oUl">
+            <!--             <li id="oLi"><a href="">1313</a></li>
+            <li id="oLi"><a href="">1313</a></li>
+            <li id="oLi"><a href="">1313</a></li>
+            <li id="oLi"><a href="">1313</a></li> -->
+        </ul>
+    </div>
+</body>
+
+</html>

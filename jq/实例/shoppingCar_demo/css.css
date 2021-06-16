@@ -1,0 +1,203 @@
+/* common */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+img {
+    display: block;
+}
+
+body {
+    overflow: hidden;
+}
+
+
+/* shopMenu */
+
+.goods_box ul {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.good_item {
+    padding: 10px 6px;
+    border-right: 1px solid #b6b6b6;
+    float: left;
+    color: #9EA4A8;
+    position: relative;
+}
+
+.good_pic {
+    padding: 2px 15px;
+    margin: 0 auto;
+    width: 160px;
+    height: 160px;
+}
+
+.good_pic:hover {
+    transform: rotate(60deg);
+    transition: 1s;
+    box-shadow: 2px 2px 5px #b6b6b6;
+    -webkit-transform: rotate(60deg);
+    -moz-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    -o-transform: rotate(60deg);
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+}
+
+.good_title {
+    font-size: 12px;
+    text-align: left;
+    color: #999;
+    padding: 13px 0 7px;
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.sc {
+    padding: 10px 5px;
+}
+
+.sc_btn {
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 2px;
+    box-shadow: 0 0 2px #f10;
+    height: 20px;
+    background-color: #fc1934;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.sc_right {
+    position: absolute;
+    width: 270px;
+    border-right: 2px solid #b6b6b6;
+    right: -270px;
+    height: 100%;
+    background-color: #fff;
+}
+
+.sc_pic {
+    width: 40px;
+    height: 40px;
+    padding: 4px 6px;
+    background: url("./img/toolbars.png") #999 15px 15px no-repeat;
+    position: relative;
+    left: -52px;
+    top: 50%;
+    margin-top: -24px;
+}
+
+.sc_num {
+    position: absolute;
+    padding: 2px 8px;
+    border-radius: 50%;
+    background-color: red;
+    color: #fff;
+    top: -8px;
+    left: 25px;
+    z-index: 1;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.sc_right ul li {
+    height: 100px;
+}
+
+.sc_goodsPic {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #b6b6b6;
+    float: left;
+    margin-left: 5px;
+}
+
+.sc_goodsPic img {
+    width: 100%;
+    height: 100%;
+}
+
+.sc_goodsTitle {
+    line-height: 40px;
+    color: #999;
+    margin-left: 20px;
+    float: left;
+    font-weight: bold;
+}
+
+.sc_goodsBtn {
+    background-color: #fc1934;
+    color: white;
+    text-align: center;
+    float: left;
+    line-height: 30px;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.sc_deleteBtn {
+    background-color: blue;
+    color: white;
+    text-align: center;
+    float: left;
+    line-height: 30px;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.sc_goodsNum {
+    float: left;
+    line-height: 30px;
+    font-size: 10px;
+    margin-left: 5px;
+    margin-left: 20px;
+}
+
+#ball {
+    background-color: black;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: absolute;
+    display: none;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.sc_right ul li button {
+    float: left;
+    width: 15px;
+    margin-top: 2px;
+}
+
+.sc_right ul li button:first-of-type {
+    margin-left: 20px;
+}
